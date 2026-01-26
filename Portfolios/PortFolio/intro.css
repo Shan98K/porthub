@@ -1,0 +1,184 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Poppins', sans-serif;
+}
+.bop{
+    background: linear-gradient(
+        -45deg,
+        rgb(19, 0, 56),
+        rgb(60, 0, 130),
+        rgb(103, 2, 103),
+        rgb(81, 6, 81),
+        rgb(39, 0, 90),
+        rgb(78, 3, 78),
+        rgb(25, 0, 90),
+        rgb(60, 0, 130),
+        rgb(19, 0, 56)
+    );
+    background-size: 800% 800%;
+    animation: colorChange 4s ease infinite;
+}
+@keyframes colorChange {
+    0% {
+        background-position: 0% 50%;
+    }
+    20% {
+        background-position: 25% 75%;
+    }
+    40% {
+        background-position: 50% 100%;
+    }
+    60% {
+        background-position: 75% 75%;
+    }
+    80% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+@keyframes zoomOut {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1.5);
+        opacity: 0;
+    }
+}
+.body{
+    background-color: black;
+    overflow: hidden;
+}
+.bop{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+    background-color: rgb(19, 0, 56);
+}
+.bop {
+    animation: colorChange 3s infinite ease-in-out, zoomOut 1s ease forwards;
+    transform-origin: center center;
+    animation-delay: 0s, 6s;
+}
+.logo{
+    display: flex;
+    gap: 25px;
+}
+.logobox{
+    color: wheat;
+    display: flex;
+    align-items: center;
+    justify-content: center;    
+    border-radius: 100px;
+    box-shadow: 0 0px 10px rgba(128, 0, 128, 0.6);
+}
+.logobox:hover{
+    scale: 1.5;
+    transition: 0.3s ease;
+}
+.logo1{
+    width: 40px;
+    height: 40px;
+    border-radius: 100px;
+    background-size: cover;
+    background-position: center;
+    background-image: url(images/htmlsign.png);
+}
+.logo2{
+    width: 40px;
+    height: 40px;
+    border-radius: 100px;
+    background-size: cover;
+    background-position: center;
+    background-image: url(images/person.png);
+}
+.logo3{
+    width: 40px;
+    height: 40px;
+    border-radius: 100px;
+    background-size: cover;
+    background-position: center;
+    background-image: url(images/pagehalf.png);
+}
+.welcome{
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+    color: white;
+    font-size: 40px;
+    font-weight: 900;
+    text-shadow: 0px 0px 40px black, 0px 0px 10px black;
+    cursor: pointer;
+}
+.welcome:hover{
+    top: 5px;
+    scale: 1.1;
+    transform: translateY(-3px);
+    transition: 0.3s ease;
+    text-shadow: 0px 0px 30px rgb(128, 0, 128), 0px 0px 5px rgb(128, 0, 128);
+}
+.port {
+    font-size: 50px;
+    font-weight: bold;
+    background: linear-gradient(90deg, #3333ff, #ff00cc);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    cursor: pointer;
+    text-shadow:
+        -2px 0px 8px rgba(51, 51, 255, 0.5),
+        2px 0px 8px rgba(255, 0, 204, 0.5),
+        0px 0px 20px rgba(0, 0, 0, 0.5);
+}
+.port:hover{
+    scale: 1.1;
+    transform: translateY(2px);
+    transition: 0.3s ease;
+    text-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+}
+.bbt{
+    padding-inline: 20px;
+    border-radius: 100px;
+    background-color: rgba(225, 225, 225, 0.1);
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+.shan{
+    position: relative;
+    cursor: pointer;
+}
+.shan98k{
+    height: 30px;
+    font-size: 20px;
+    font-weight: bold;
+    background: linear-gradient(90deg, #3333ff, #ff00cc);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+}
+.bbt, .bat{
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+}
+.bat{
+    position: absolute;
+    margin-top: -30px;
+    border-radius: 100px;
+    background-color: rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(2px);
+}
+.shan:hover{
+    scale: 1.1;
+    transition: 0.3s ease-in-out;
+    transform: translateY(10px);
+}
+.shan:hover .bat{
+    width: 0px;
+    height: 0px;
+}

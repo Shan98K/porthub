@@ -1,0 +1,126 @@
+.slidersbox {
+  display: flex;
+  position: fixed;
+  width: 100%;
+  justify-content: space-between;
+  z-index: 10;
+  justify-content: center;
+  align-items: center;
+}
+.slider {
+  width: 100px;
+  height: 100px;
+  background: transparent;
+  position: absolute;
+  z-index: 10;
+}
+#sliderleft{
+  margin-left: -80vw;
+}
+#sliderright{
+  margin-right: -80vw;
+}
+.slider img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 1;
+  transition: transform 0.3s ease;
+  transform: rotateX(180deg);
+}
+.slider:hover img {
+  transform: scale(1.1);
+  background: rgba(128, 0, 128, 0.5);
+}
+.slider:active img {
+  transform: scale(0.9);
+  background: rgba(128, 128, 128, 0.5);
+  transition: background 0s transform 01s;
+}
+@media (max-width: 1920px) {
+  .slider {
+    transform: scale(1.05);
+  }
+  .slidersbox {
+    padding-inline: 20px;
+  }
+}
+
+@media (max-width: 1800px) {
+  .slider {
+    transform: scale(1);
+  }
+  .slidersbox {
+    padding-inline: 20px;
+  }
+}
+
+@media (max-width: 1600px) {
+  .slider {
+    transform: scale(0.95);
+  }
+  .slidersbox {
+    padding-inline: 20px;
+  }
+}
+
+@media (max-width: 1440px) {
+  .slider {
+    transform: scale(0.9);
+  }
+  .slidersbox {
+    padding-inline: 20px;
+  }
+}
+
+/* Laptops (1280px – 1440px) */
+@media (max-width: 1280px) {
+  .slider {
+    transform: scale(0.85);
+  }
+  .slidersbox {
+    padding-inline: 20px;
+  }
+}
+
+/* Tablets (768px – 1024px) */
+@media (max-width: 1024px) {
+  .slider {
+    transform: scale(0.8);
+  }
+  .slidersbox {
+    padding-inline: 20px;
+  }
+}
+
+/* Phones big (600px – 768px) */
+@media (max-width: 768px) {
+  .slider {
+    transform: scale(0.75);
+  }
+  .slidersbox {
+    padding-inline: 20px;
+  }
+}
+
+/* Phones small (480px – 600px) */
+@media (max-width: 600px) {
+  .slider {
+    transform: scale(0.7);
+  }
+  .slidersbox {
+    padding-inline: 20px;
+  }
+}
+
+/* Very small phones (less than 480px) */
+@media (max-width: 480px) {
+  .slider {
+    transform: scale(0.6);
+  }
+  .slidersbox {
+    padding-inline: 0px;
+  }
+}

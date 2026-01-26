@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Harsh Raj — Frontend Developer</title>
+  <meta name="description" content="Harsh Raj — Frontend developer & digital creator. Web apps, logos, templates, animations. One-file portfolio." />
+  <style>
+    /* ====== CSS: All-in-one (no external files) ====== */
+    :root {
+      --bg: #0b0d12;
+      --bg-2: #0e1117;
+      --fg: #e6edf3;
+      --muted: #a0a6b2;
+      --brand: #65d6ff; /* electric cyan */
+      --brand-2: #9b59ff; /* violet */
+      --card: #121521;
+      --ok: #39d98a;
+      --warn: #ffd166;
+      --bad: #ff5c7c;
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --radius: 18px;
+      --glass: rgba(255,255,255,.06);
+    }
+    [data-theme="light"]{
+      --bg: #f7f9fc; --bg-2: #ffffff; --fg: #0b0d12; --muted: #51607a; --card: #ffffff; --shadow: 0 10px 30px rgba(2,6,23,.08);
+    }
+
+    * { box-sizing: border-box }
+    html, body { height: 100% }
+    body {
+      margin: 0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+      color: var(--fg);
+      background: radial-gradient(1200px 800px at 80% -20%, rgba(155,89,255,.15), transparent 60%),
+                  radial-gradient(800px 600px at 0% 0%, rgba(101,214,255,.18), transparent 55%),
+                  var(--bg);
+      line-height: 1.55;
+      overflow-x: hidden;
+    }
+
+    /* Floating bubbles background ("bigger + varied transparency") */
+    .bubbles { position: fixed; inset: 0; pointer-events:none; z-index: -1; overflow:hidden }
+    .bubble { position:absolute; border-radius:50%; filter: blur(2px); opacity:.15; background: linear-gradient(135deg, var(--brand), var(--brand-2)); mix-blend-mode: screen; animation: floatUp linear infinite; }
+    @keyframes floatUp { from { transform:translateY(20vh) scale(var(--s,1)); } to { transform:translateY(-120vh) scale(calc(var(--s,1) * 1.2)); } }
+
+    header {
+      position: sticky; top: 0; z-index: 50;
+      backdrop-filter: blur(10px);
+      background: linear-gradient(180deg, rgba(0,0,0,.35), rgba(0,0,0,0));
+      border-bottom: 1px solid rgba(255,255,255,.06);
+    }
+    .nav { max-width: 1100px; margin: 0 auto; display:flex; align-items:center; gap:16px; padding: 14px 18px; }
+    .logo { font-weight: 800; letter-spacing: .5px; display:flex; align-items:center; gap:10px }
+    .logo .mark { width: 26px; height: 26px; border-radius: 8px; background: linear-gradient(135deg, var(--brand), var(--brand-2)); box-shadow: var(--shadow) }
+    .nav a { color: var(--fg); text-decoration:none; opacity:.9 }
+    .spacer { flex: 1 }
+    .btn { display:inline-flex; align-items:center; gap:8px; padding: 10px 14px; border-radius: 999px; border:1px solid rgba(255,255,255,.12); background: var(--glass); box-shadow: var(--shadow); transition: transform .15s ease, background .2s ease }
+    .btn:hover { transform: translateY(-2px); background: rgba(255,255,255,.1) }
+    .theme { cursor: pointer }
+
+    .container { max-width: 1100px; margin: 0 auto; padding: 48px 18px }
+
+    /* Hero */
+    .hero { display:grid; grid-template-columns: 1.2fr .8fr; align-items:center; gap: 32px; padding: 48px 0 10px }
+    .kicker { display:inline-block; font-size: 13px; letter-spacing:.12em; text-transform:uppercase; color: var(--muted); border:1px solid rgba(255,255,255,.12); padding: 6px 10px; border-radius: 999px }
+    .title { font-size: clamp(34px, 5.3vw, 62px); line-height: 1.05; margin: 16px 0 10px; font-weight: 900 }
+    .glitch {
+      position: relative; display:inline-block;
+      text-shadow: 0 0 18px rgba(101,214,255,.35);
+    }
+    .glitch:before, .glitch:after { content: attr(data-text); position:absolute; left:0; top:0; clip-path: inset(0 0 0 0 round 3px); }
+    .glitch:before { transform: translate(2px, -1px); opacity:.5; color: var(--brand) }
+    .glitch:after  { transform: translate(-2px, 1px); opacity:.45; color: var(--brand-2) }
+    .lead { font-size: clamp(16px, 2.3vw, 19px); color: var(--muted); margin: 14px 0 18px }
+    .cta { display:flex; gap:12px; flex-wrap: wrap }
+
+    .showcase { aspect-ratio: 4 / 3; border-radius: var(--radius); background: linear-gradient(135deg, #111522, #0c0f1a); border:1px solid rgba(255,255,255,.08); position:relative; overflow:hidden; box-shadow: var(--shadow) }
+    .spark { position:absolute; border-radius:50%; width:220px; height:220px; background: radial-gradient(circle at 30% 30%, rgba(101,214,255,.8), transparent 55%); filter: blur(12px); mix-blend-mode: screen; opacity:.35; animation: drift 10s ease-in-out infinite alternate }
+    .spark.s2 { left:auto; right:-40px; top:40%; width:260px; height:260px; background: radial-gradient(circle at 40% 40%, rgba(155,89,255,.8), transparent 55%) }
+    @keyframes drift { from { transform: translate(-40px,-20px) } to { transform: translate(30px, 30px) } }
+
+    /* Chips */
+    .chips { display:flex; flex-wrap:wrap; gap:8px; margin-top: 10px }
+    .chip { font-size: 12px; padding:6px 10px; border:1px solid rgba(255,255,255,.14); border-radius:999px; background: rgba(255,255,255,.04) }
+
+    /* Section titles */
+    .section-title { font-size: 13px; letter-spacing:.14em; text-transform:uppercase; color: var(--muted); margin: 56px 0 16px }
+
+    /* Grid cards */
+    .grid { display:grid; grid-template-columns: repeat(12, 1fr); gap: 16px }
+    .card { grid-column: span 4; background: var(--card); border:1px solid rgba(255,255,255,.08); border-radius: var(--radius); padding:18px; position:relative; overflow:hidden; transition: transform .15s ease, border-color .2s ease, box-shadow .2s ease }
+    .card:hover { transform: translateY(-4px); border-color: rgba(255,255,255,.18); box-shadow: var(--shadow) }
+    .card h3 { margin: 2px 0 6px; font-size: 18px }
+    .card p { margin: 0; color: var(--muted) }
+    .tags { display:flex; gap:6px; flex-wrap:wrap; margin-top: 10px }
+    .tag { font-size: 11px; padding: 4px 8px; border-radius: 999px; border:1px dashed rgba(255,255,255,.18) }
+
+    /* Skills */
+    .skills { display:grid; grid-template-columns: 1fr 1fr; gap: 16px }
+    .pill { display:flex; align-items:center; justify-content:space-between; gap:10px; background: var(--card); border:1px solid rgba(255,255,255,.08); border-radius: 999px; padding: 10px 12px }
+    .bar { height: 8px; flex:1; margin-left: 10px; background: rgba(255,255,255,.06); border-radius: 999px; overflow:hidden; position:relative }
+    .bar > i { display:block; height:100%; width: var(--w, 60%); background: linear-gradient(90deg, var(--brand), var(--brand-2)); box-shadow: inset 0 0 10px rgba(0,0,0,.3) }
+
+    /* Spline / 3D */
+    .spline { aspect-ratio: 16/9; width: 100%; border: 0; border-radius: var(--radius); box-shadow: var(--shadow); border:1px solid rgba(255,255,255,.08) }
+
+    /* Timeline */
+    .timeline { position:relative; padding-left: 24px }
+    .timeline:before { content:""; position:absolute; left:8px; top:0; bottom:0; width:2px; background: linear-gradient(180deg, var(--brand), transparent) }
+    .step { position:relative; margin: 0 0 18px }
+    .step:before { content:""; position:absolute; left:-18px; top:2px; width:12px; height:12px; border-radius:50%; background: linear-gradient(135deg, var(--brand), var(--brand-2)); box-shadow: 0 0 0 3px rgba(101,214,255,.15) }
+    .step h4 { margin:0 0 4px }
+    .step p { margin:0; color: var(--muted) }
+
+    /* Contact */
+    form { display:grid; gap: 10px; background: var(--card); border:1px solid rgba(255,255,255,.08); padding: 14px; border-radius: var(--radius) }
+    input, textarea { width: 100%; padding: 12px 12px; border-radius: 12px; border: 1px solid rgba(255,255,255,.12); background: var(--bg-2); color: var(--fg) }
+    textarea { min-height: 120px; resize: vertical }
+    .inline { display:flex; gap:10px; flex-wrap: wrap }
+
+    /* Footer */
+    footer { text-align:center; color: var(--muted); padding: 40px 0 60px }
+
+    /* Responsive */
+    @media (max-width: 900px){
+      .hero { grid-template-columns: 1fr; }
+      .card { grid-column: span 6 }
+      .skills { grid-template-columns: 1fr }
+    }
+    @media (max-width: 640px){
+      .card { grid-column: span 12 }
+    }
+  </style>
+</head>
+<body>
+  <!-- Floating bubbles -->
+  <div class="bubbles" aria-hidden="true" id="bubbles"></div>
+
+  <!-- NAV -->
+  <header>
+    <nav class="nav">
+      <div class="logo"><span class="mark"></span><a href="#top" aria-label="Home">Harsh&nbsp;Raj</a></div>
+      <a href="#work">Work</a>
+      <a href="#skills">Skills</a>
+      <a href="#process">Process</a>
+      <a href="#contact">Contact</a>
+      <div class="spacer"></div>
+      <button class="btn theme" id="themeBtn" aria-label="Toggle theme">🌓 Theme</button>
+      <a class="btn" href="mailto:harshraj@example.com?subject=Project%20idea%20for%20Harsh" aria-label="Email Harsh">✉️ Hire me</a>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <main class="container" id="top">
+    <section class="hero" aria-label="Intro">
+      <div>
+        <span class="kicker">Frontend Developer • Digital Creator</span>
+        <h1 class="title">
+          <span class="glitch" data-text="Harsh Raj">Harsh Raj</span><br />
+          cooks a <span class="glitch" data-text="Full‑Omelette">Full‑Omelette</span> of web experiences 🍳
+        </h1>
+        <p class="lead">I build fast, animated, accessible interfaces and design systems. I also sell digital creations — logos, templates & micro‑animations — and I’m comfortable jumping from Figma to code to Blender.
+        </p>
+        <div class="cta">
+          <a class="btn" href="#work">See projects</a>
+          <a class="btn" href="#contact">Let’s collaborate</a>
+        </div>
+        <div class="chips" aria-label="Highlights">
+          <span class="chip">Web Apps</span>
+          <span class="chip">Logos</span>
+          <span class="chip">Templates</span>
+          <span class="chip">Animations</span>
+          <span class="chip">Blender Basics</span>
+          <span class="chip">Oni AE mod enjoyer</span>
+        </div>
+      </div>
+      <div>
+        <div class="showcase" role="img" aria-label="Abstract animation">
+          <div class="spark" style="left:-40px; top:-20px"></div>
+          <div class="spark s2"></div>
+          <!-- Minimal CSS-only marquee of skills -->
+          <div id="marquee" style="position:absolute; bottom:0; left:0; right:0; padding:14px 0; border-top:1px solid rgba(255,255,255,.08); background: linear-gradient(0deg, rgba(255,255,255,.05), transparent); overflow:hidden">
+            <div style="display:flex; gap:30px; white-space:nowrap; animation: roll 18s linear infinite">
+              <b>React</b><b>TypeScript</b><b>HTML</b><b>CSS</b><b>GSAP</b><b>Framer</b><b>Node</b><b>Express</b><b>Mongo</b><b>Three.js</b><b>Blender</b><b>Figma</b>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <style>
+      @keyframes roll { from { transform: translateX(0) } to { transform: translateX(-50%) } }
+      #marquee div b { opacity:.85 }
+    </style>
+
+    <!-- WORK -->
+    <h2 id="work" class="section-title">Selected work</h2>
+    <section class="grid" aria-label="Projects">
+      <!-- Project 1 -->
+      <article class="card" data-tags="react,ui,animation">
+        <h3>Animated Infinite Arrows</h3>
+        <p>Playful CSS/JS component with GPU‑friendly looping arrows for CTAs and hero sections.</p>
+        <div class="tags"><span class="tag">CSS</span><span class="tag">Canvas‑free</span><span class="tag">Performance</span></div>
+      </article>
+      <!-- Project 2 -->
+      <article class="card" data-tags="spline,3d,portfolio">
+        <h3>3D Portfolio Embed</h3>
+        <p>Integrated a Spline 3D scene with a11y fallbacks and theme‑aware lighting.</p>
+        <div class="tags"><span class="tag">Spline</span><span class="tag">3D</span><span class="tag">A11y</span></div>
+      </article>
+      <!-- Project 3 -->
+      <article class="card" data-tags="branding,logo,templates">
+        <h3>Logo & Template Pack</h3>
+        <p>Sold a set of clean “S” monogram logos and Notion/Web templates for indie makers.</p>
+        <div class="tags"><span class="tag">Branding</span><span class="tag">Templates</span><span class="tag">E‑commerce</span></div>
+      </article>
+      <!-- Project 4 -->
+      <article class="card" data-tags="react,auth,ui">
+        <h3>Auth UI with Bubbles</h3>
+        <p>Login/Signup flow with larger, semi‑transparent background bubbles and non‑overlapping warnings.</p>
+        <div class="tags"><span class="tag">UX</span><span class="tag">Validation</span><span class="tag">Micro‑interactions</span></div>
+      </article>
+      <!-- Project 5 -->
+      <article class="card" data-tags="webapp,tools">
+        <h3>One‑File Landing</h3>
+        <p>A zero‑dependency launch page: HTML‑only, responsive, accessible, and fast.</p>
+        <div class="tags"><span class="tag">No build</span><span class="tag">SEO</span><span class="tag">Fast</span></div>
+      </article>
+      <!-- Project 6 -->
+      <article class="card" data-tags="gsap,framer,motion">
+        <h3>Motion Snippets</h3>
+        <p>Collection of GSAP/Framer patterns for tasteful, performance‑minded UI motion.</p>
+        <div class="tags"><span class="tag">GSAP</span><span class="tag">Framer</span><span class="tag">Timing</span></div>
+      </article>
+    </section>
+
+    <!-- SKILLS -->
+    <h2 id="skills" class="section-title">Skills at a glance</h2>
+    <section class="skills" aria-label="Skills">
+      <div class="pill"><span>HTML • CSS • JS</span><div class="bar"><i style="--w:95%"></i></div></div>
+      <div class="pill"><span>React • TypeScript</span><div class="bar"><i style="--w:88%"></i></div></div>
+      <div class="pill"><span>Framer • GSAP</span><div class="bar"><i style="--w:84%"></i></div></div>
+      <div class="pill"><span>Node • Express</span><div class="bar"><i style="--w:70%"></i></div></div>
+      <div class="pill"><span>Three.js • Spline</span><div class="bar"><i style="--w:68%"></i></div></div>
+      <div class="pill"><span>Blender Basics</span><div class="bar"><i style="--w:55%"></i></div></div>
+    </section>
+
+    <!-- PROCESS / TIMELINE -->
+    <h2 id="process" class="section-title">How I work</h2>
+    <section class="timeline" aria-label="Process">
+      <div class="step"><h4>1. Discover</h4><p>Scope, goals, audience, KPI. 30‑min call + FigJam notes.</p></div>
+      <div class="step"><h4>2. Design</h4><p>Wireframe → hi‑fi in Figma. Token‑first, component‑driven.</p></div>
+      <div class="step"><h4>3. Build</h4><p>Ship responsive, accessible UI with clean, typed code.</p></div>
+      <div class="step"><h4>4. Polish</h4><p>Perf pass, a11y checks, motion tuning, dark/light QA.</p></div>
+      <div class="step"><h4>5. Handoff</h4><p>Docs, loom, and support. Optional templates & logo add‑ons.</p></div>
+    </section>
+
+    <!-- 3D / SPLINE -->
+    <h2 class="section-title">3D flavor</h2>
+    <p style="color:var(--muted); margin-top:-6px">Drop in your Spline link by replacing the <code>src</code> below.</p>
+    <iframe class="spline" src="https://my.spline.design/placeholder" title="Spline 3D scene placeholder" loading="lazy"></iframe>
+
+    <!-- CONTACT -->
+    <h2 id="contact" class="section-title">Contact</h2>
+    <section class="grid" aria-label="Contact form and links" style="align-items:start">
+      <div class="card" style="grid-column: span 7">
+        <form onsubmit="return sendMail(this)">
+          <div class="inline">
+            <input name="name" placeholder="Your name" autocomplete="name" required />
+            <input name="email" type="email" placeholder="Email" autocomplete="email" required />
+          </div>
+          <input name="subject" placeholder="Subject" required />
+          <textarea name="message" placeholder="Tell me about your project…" required></textarea>
+          <div class="inline">
+            <button class="btn" type="submit">✉️ Send</button>
+            <a class="btn" href="mailto:harshraj@example.com?subject=Hello%20Harsh">Open email app</a>
+          </div>
+        </form>
+      </div>
+      <div class="card" style="grid-column: span 5">
+        <h3>Elsewhere</h3>
+        <p class="muted">I’m open to freelance & collabs.</p>
+        <div class="tags">
+          <a class="tag" href="#" onclick="alert('Add your GitHub URL')">GitHub</a>
+          <a class="tag" href="#" onclick="alert('Add your LinkedIn URL')">LinkedIn</a>
+          <a class="tag" href="#" onclick="alert('Add your Twitter/X URL')">Twitter</a>
+          <a class="tag" href="#" onclick="alert('Add your Behance/Dribbble URL')">Design</a>
+        </div>
+        <div class="chips" style="margin-top:12px">
+          <span class="chip">India (IST)</span>
+          <span class="chip">Remote‑friendly</span>
+          <span class="chip">Ships fast</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <small>© <span id="year"></span> Harsh Raj — Built as a single HTML file. No builds, no deps.</small>
+  </footer>
+
+  <script>
+    // ====== JS: tiny sprinkles only ======
+
+    // 1) Dynamic year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // 2) Theme toggle (persist)
+    const themeBtn = document.getElementById('themeBtn');
+    const preferDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const saved = localStorage.getItem('theme');
+    if(saved){ document.documentElement.setAttribute('data-theme', saved); }
+    else { document.documentElement.setAttribute('data-theme', preferDark ? 'dark' : 'light'); }
+    themeBtn.addEventListener('click', () => {
+      const next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+    });
+
+    // 3) Float big bubbles with varied transparency & sizes
+    const bubbleRoot = document.getElementById('bubbles');
+    const bubbleCount = 14;
+    for(let i=0;i<bubbleCount;i++){
+      const b = document.createElement('span');
+      b.className = 'bubble';
+      const size = Math.random() * 220 + 120; // 120–340px (bigger)
+      const left = Math.random() * 100; // vw
+      const delay = Math.random() * -30; // start at random spot
+      const dur = Math.random() * 18 + 18; // 18–36s
+      const op = Math.random() * 0.35 + 0.08; // varied transparency .08–.43
+      b.style.width = size+'px';
+      b.style.height = size+'px';
+      b.style.left = left+'vw';
+      b.style.bottom = (-Math.random()*40)+'vh';
+      b.style.opacity = op;
+      b.style.setProperty('--s', (Math.random()*0.6 + 0.8).toFixed(2));
+      b.style.animationDuration = dur+'s';
+      b.style.animationDelay = delay+'s';
+      bubbleRoot.appendChild(b);
+    }
+
+    // 4) Simple scroll-reveal
+    const observer = new IntersectionObserver((entries)=>{
+      for(const e of entries){
+        if(e.isIntersecting){
+          e.target.animate([{opacity:0, transform:'translateY(10px)'}, {opacity:1, transform:'none'}], {duration:500, easing:'ease-out', fill:'forwards'});
+          observer.unobserve(e.target);
+        }
+      }
+    },{threshold:.12});
+    document.querySelectorAll('.card, .pill, .step').forEach(el=>observer.observe(el));
+
+    // 5) Form: mailto fallback with encoded body
+    function sendMail(form){
+      const data = new FormData(form);
+      const name = data.get('name');
+      const email = data.get('email');
+      const subject = (data.get('subject')||'New message');
+      const message = (data.get('message')||'');
+      const body = encodeURIComponent(`Hey Harsh,\n\n${message}\n\n— ${name} (${email})`);
+      window.location.href = `mailto:harshraj@example.com?subject=${encodeURIComponent(subject)}&body=${body}`;
+      return false; // prevent default submit
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+slider.js
+	There's this "  });  " part of the code which should be there according to the braces and parentheses
+	is making some kind of glitch causing the scroll effect to run with mouse without it but the BTNs
+	won't work after that and with it the scroll with mouse won't work but the BTNs work as supposed to
+
+sliderfix.js 
+	Just simpler version of slider.js self written but still the same problem as above
+
+Thus ,
+	Conclusion :-
+
+		I made 3 separate javascript files
+			opencenter.js		- 	1st for opening the middle page
+			sliderbtn.js 		-	2nd for scrolling BTNs 
+			slidermouse.js 		-	3rd for scrolling with mouse it had the error of not having "  });  " but still worked fine

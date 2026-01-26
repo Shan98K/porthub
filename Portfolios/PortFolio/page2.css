@@ -1,0 +1,257 @@
+@keyframes ColorTravel {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 70% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+@keyframes drop {
+  0% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+  65% {
+    transform: translateY(-8.5px);
+  }
+  75% {
+    transform: translateY(-10px);
+  }
+  80% {
+    transform: translateY(-9px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.page2{
+    padding-inline: 20px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    max-width: 85%;
+    width: max-content;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+.p2textmain{
+    color: white;
+    font-size: 2rem;
+    font-weight: 600;
+    text-shadow:
+        0px 0px 5px rgba(0, 0, 0, 1),
+        1px 1px 10px rgba(0, 0, 0, 1),
+        1px 1px 20px rgba(0, 0, 0, 1);
+}
+.p2textsub{
+    font-size: 0.9rem;
+    gap: 20px;
+    display: flex;
+}
+.p2subtext{
+    color: white;
+    text-shadow:
+        0px 0px 5px rgba(0, 0, 0, 1),
+        1px 1px 10px rgba(0, 0, 0, 1),
+        1px 1px 20px rgba(0, 0, 0, 1);
+}
+.p2aboutbox{
+    margin-top: 50px;
+    display: flex;
+    flex-wrap: wrap;
+}
+.p2hello{
+    color: white;
+    font-size: 2rem;
+    font-weight: 600;
+    text-shadow:
+        0px 0px 5px rgba(0, 0, 0, 1),
+        1px 1px 10px rgba(0, 0, 0, 1),
+        1px 1px 20px rgba(0, 0, 0, 1);
+}
+.p2namebox{
+    position: relative;
+}
+.p2nameshadow {
+    position: absolute;
+    font-size: 2rem;
+    max-width: 250px;
+    font-weight: 600;
+    width: max-content;
+    color: black;
+    text-shadow:
+        0px 0px 5px rgba(0, 0, 0, 1),
+        1px 1px 10px rgba(0, 0, 0, 1),
+        1px 1px 20px rgba(0, 0, 0, 1);
+}
+.p2name {
+    position: relative;
+    font-size: 2rem;
+    max-width: 250px;
+    font-weight: 600;
+    width: max-content;
+    color: transparent;
+    background: linear-gradient(to right, rgb(255, 0, 255) ,blue);
+    background-size: 200%;
+    background-position: 0% 50%;
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+.p2abouttext{
+    color: white;
+    max-width: 50%;
+}
+.p2aboutbuttons{
+    gap: 25px;
+    display: flex;
+    margin-top: 20px;
+    text-shadow:
+        0px 0px 5px rgba(0, 0, 0, 1),
+        1px 1px 20px rgba(0, 0, 0, 1);
+}
+.p2button1{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-weight: bold;
+    text-align: center;
+    padding-inline: 20px;
+    border-radius: 12.5px;
+    background: linear-gradient(to right, rgb(255, 0, 255) ,blue);
+    background-size: 200%;
+    background-position: 0% 50%;
+    text-shadow:
+        0px 0px 5px rgba(0, 0, 0, 1),
+        1px 1px 20px rgba(0, 0, 0, 1);
+}
+.p2button1:hover{
+    scale: 0.95;
+    border: 1px solid rgb(195, 195, 195);
+    animation: ColorTravel 2.5s linear infinite;
+}
+.p2button2{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2px;
+    color: white;
+    cursor: pointer;
+    font-size: 20px;
+    transition: 0.3s;
+    font-weight: bold;
+    text-align: center;
+    padding-inline: 20px;
+    border-radius: 12.5px 12.5px 20px 20px;
+    background-color: rgba(0, 0, 0, 0.2);
+    background-size: 200%;
+    background-position: 0% 50%;
+    text-shadow:
+        0px 0px 5px rgba(0, 0, 0, 1),
+        1px 1px 20px rgba(0, 0, 0, 1);
+}
+.p2button2:hover{
+    color: black;
+    background-color: rgba(0, 0, 0, 0);
+    animation: drop 0.5s linear forwards;
+    text-shadow:
+        0px 0px 5px rgba(255, 255, 255, 1),
+        1px 1px 20px rgba(255, 255, 255, 1);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 1537px) {
+    .page2{
+        margin-top: 400px;
+    }
+}
+@media (max-width: 1280px) {
+    .page2{
+        margin-top: 200px;
+    }
+}
+@media (max-width: 1024px) {
+    .page2{
+        margin-top: 150px;
+    }
+}
+@media (max-width: 768px) {
+    .page2{
+        margin-top: 20px;
+    }
+}
+@media (max-width: 475px) {
+    .page2{
+        margin-top: 20px;
+    }
+}
+@media (max-width: 314px) {
+    .page2{
+        margin-top: 0px;
+    }
+}

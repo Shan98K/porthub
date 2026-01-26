@@ -1,0 +1,377 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+@keyframes appearDown {
+    0% {
+        opacity: 0;
+        scale: 0.8;
+    }
+    20% {
+        opacity: 0;
+        scale: 0.8;
+        transform: translateY(-25px);
+    }
+    100% {
+        opacity: 1;
+        scale: 0.8;
+        transform: translateY(0px);
+    }
+}
+.navbar{
+    z-index: 2;
+    width: 100%;
+    height: 50px;
+    display: flex;
+    position: absolute;
+    padding-inline: 50px;;
+    align-items: center;
+}
+.logo, .home, .about, .shopping, .contact, .searchbar, .cart {
+    opacity: 0;
+    animation: appearDown 0.75s ease-in forwards;
+}
+.logo{
+    margin-top: 25px;
+    width: 150px;
+    height: 150px;
+    animation-delay: 1s;
+    background: url(images/raktvansh.png);
+    background-size: cover;
+    background-position: center;
+    filter: drop-shadow(2px 2px 5px rgba(0, 0, 0, 0.5));
+
+}
+.nav{
+    gap: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-left: auto;
+}
+.home{
+    width: 25px;
+    height: 25px;
+    animation-delay: 2s;
+    background-color: red;
+}
+.about{
+    width: 25px;
+    height: 25px;
+    animation-delay: 2.2s;
+    background-color: red;
+}
+.shopping{
+    width: 25px;
+    height: 25px;
+    animation-delay: 2.4s;
+    background-color: red;
+}
+.contact{
+    width: 25px;
+    height: 25px;
+    animation-delay: 2.6s;
+    background-color: red;
+}
+.searchbar{
+    gap: 5px;
+    width: 100px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    border-radius: 15px;
+    animation-delay: 2.8s;
+    background-color: rgba(225, 225, 225, 0.4);
+}
+@keyframes spinX {
+    0% {
+        scale: 1;
+        opacity: 0;
+        transform: rotateY(0deg);
+    }
+    20% {
+        opacity: 0.4;
+    }
+    50% {
+        opacity: 0.6;
+        scale: 2;
+    }
+    100% {
+        scale: 1.05;
+        opacity: 1;
+        transform: rotateY(540deg);
+    }
+}
+.searchlogo{
+    opacity: 0;
+    width: 25px;
+    height: 25px;
+    margin-left: 5px;
+    border-radius: 25px;
+    animation: spinX 2.5s ease-in-out 4s forwards;
+    background-size: cover;
+    background-position: center;
+    background-image: url(images/search.png);
+}
+.searchtext{
+    font-size: 0.8rem;
+    color: white;
+}
+.cart{
+    width: 25px;
+    height: 25px;
+    animation-delay: 3s;
+    transition: 0.3s ease-in-out;
+    background: url(images/cart.png);
+    background-size: cover;
+}
+.cart:hover{
+    translate: 10px 0px;
+    rotate: -20deg;
+    scale: 12;
+}
+.background{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(50, 50, 50);
+}
+@keyframes fadeIN {
+    0% {
+        opacity: 0;
+        transform: scaleY(1.5);
+    }
+    20% {
+        opacity: 0;
+        transform: scaleY(1.5), translateX(-100px);
+    }
+    100% {
+        opacity: 1;
+        transform: scaleY(1.5), translateX(0px);
+    }
+}
+.textshadow{
+    top: 100px;
+    font-weight: 600;
+    font-size: 10rem;
+    color: transparent;
+    position: absolute;
+    transform-origin: top;
+    transform: scaleY(1.5);
+    text-shadow: 2px 2px 40px rgba(0, 0, 0, 0.6);
+}
+.text{
+    top: 100px;
+    color: black;
+    font-weight: 600;
+    font-size: 10rem;
+    position: absolute;
+    transform-origin: top;
+    transform: scaleY(1.5);
+    background: linear-gradient(135deg , transparent 10%, black 80%, rgb(42, 42, 42) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.text ,.textshadow{
+    animation: fadeIN 2s ease-in-out;
+}
+.bg{
+    width: 35vw;
+    height: 35Vw;
+    position: absolute;
+    margin-top: -75px;
+    margin-left: -75px;
+    filter: blur(100px);
+    border-radius: 0% 0% 100%;
+    background: linear-gradient(-135deg, rgba(109, 109, 109, 0.3), rgb(128, 128, 128,0.9));
+    z-index: 1;
+}
+@keyframes zoomed {
+    0% {
+        scale: 0;
+        opacity: 0;
+    }
+    40% {
+        scale: 0;
+        opacity: 0;
+    }
+    80% {
+        scale: 1.2;
+        opacity: 1;
+    }
+    90% {
+        scale: 0.9;
+        opacity: 1;
+    }
+    100% {
+        scale: 1;
+        opacity: 1;
+    }
+}
+.tshirtdisplayed{
+    z-index: 1;
+    opacity: 0;
+    width: 500px;
+    height: 500px;
+    position: absolute;
+    top: calc(50% - 250px);
+    left: calc(50% - 250px);
+    background-size: 245%;
+    background-position: 0% 25%;
+    background-repeat: no-repeat;
+    transition: 0.3s ease-in-out;
+    animation: zoomed 2s ease-in-out 3.25s forwards;
+}
+.buttoncontainer{
+    top: 25%;
+    margin-left: 37.5%;
+    position: absolute;
+}
+@keyframes flipX {
+    0% {
+        scale: 0;
+        opacity: 0;
+        transform: rotateY(180deg) skewX(-45deg);
+    }
+    80% {
+        scale: 1.25;
+        opacity: 1;
+        transform: rotateY(20deg) skewX(-45deg);
+    }
+    100% {
+        scale: 1;
+        opacity: 1;
+        transform: rotateY(0deg) skewX(-45deg);
+    }
+}
+.tshirtang1{
+    display: flex;
+    z-index: 1;
+    opacity: 0;
+    width: 100px;
+    height: 60px;
+    top: 220px;
+    left: 375px;
+    position: absolute;
+    transform: skewX(-45deg);
+    border-radius: 10px;
+    animation: flipX 1s ease-in-out 3.5s forwards;
+    background: linear-gradient(45deg, orange, orangered, orangered);
+}
+.tshirtang1::after{
+    content: "";
+    scale: 0.8;
+    width: 80px;
+    height: 80px;
+    margin-top: -10px;
+    margin-left: 10px;
+    background-size: 245%;
+    background-image: url(images/tshirt1.png);
+    background-repeat: no-repeat;
+    transform: skewX(45deg);
+    background-position: 0% 25%;
+    transition: 0.3s ease-in-out;
+}
+.tshirtang1:hover::after {
+    margin: -25px;
+    transform: scale(1.5) skewX(45deg);
+}
+.tshirtdisplayed:has(.tshirtang1:active){
+    background-image: url(images/tshirt1.png);
+    background-size: 245%;
+    background-position: 0% 25%;
+}
+.tshirtdisplayed:has(.tshirtang1::after:active){
+    background-image: url(images/tshirt1.png);
+    background-size: 245%;
+    background-position: 0% 25%;
+}
+.tshirtang2{
+    display: flex;
+    z-index: 1;
+    opacity: 0;
+    width: 100px;
+    height: 60px;
+    top: 300px;
+    left: 300px;
+    position: absolute;
+    transform: skewX(-45deg);
+    border-radius: 10px;
+    animation: flipX 2s ease-in-out 3.75s forwards;
+    background: linear-gradient(45deg, orange, orangered, orangered);
+}
+.tshirtang2::after{
+    content: "";
+    scale: 0.8;
+    width: 80px;
+    height: 80px;
+    margin-top: -6px;
+    margin-left: 10px;
+    transform: skewX(45deg);
+    background-repeat: no-repeat;
+    background-size: 75%;
+    background-position: center;
+    transition: 0.3s ease-in-out;
+    background-image: url(images/tshirt1m.png);
+}
+.tshirtang2:hover::after {
+    margin: -25px;
+    transform: scale(1.5) skewX(45deg);
+}
+.tshirtdisplayed:has(.tshirtang2:active){
+    background-image: url(images/tshirt1m.png);
+    background-size: 75%;
+    background-position: center;
+}
+.tshirtdisplayed:has(.tshirtang2::after:active){
+    background-image: url(images/tshirt1m.png);
+    background-size: 245%;
+    background-position: center;
+}
+.tshirtang3{
+    display: flex;
+    z-index: 1;
+    opacity: 0;
+    width: 100px;
+    height: 60px;
+    top: 380px;
+    left: 225px;
+    position: absolute;
+    transform: skewX(-45deg);
+    border-radius: 10px;
+    animation: flipX 2s ease-in-out 4s forwards;
+    background: linear-gradient(45deg, orange, orangered, orangered);
+}
+.tshirtang3::after{
+    content: "";
+    scale: 0.8;
+    width: 80px;
+    height: 80px;
+    margin-top: -10px;
+    margin-left: 10px;
+    background-size: 245%;
+    background-repeat: no-repeat;
+    transform: skewX(45deg);
+    background-position: 100% 25%;
+    transition: 0.3s ease-in-out;
+    background-image: url(images/tshirt1.png);
+}
+.tshirtang3:hover::after {
+    margin: -25px;
+    transform: scale(1.5) skewX(45deg);
+}
+.tshirtdisplayed:has(.tshirtang3:active){
+    background-image: url(images/tshirt1.png);
+    background-size: 245%;
+    background-position: 100% 25%;
+}
+.tshirtdisplayed:has(.tshirtang3::after:active){
+    background-image: url(images/tshirt1.png);
+    background-size: 245%;
+    background-position: 100% 25%;
+}

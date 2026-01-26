@@ -1,0 +1,103 @@
+*{
+    margin: 0px;
+}
+.navbarspace{
+    height: 60px;
+    width: 0px;
+}
+.navbar{
+    z-index: 100;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    display: flex;
+    position: fixed;
+    align-items: center;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    background-color: rgba(0,0,0,0.3);
+    box-shadow: 0px 2px 5px rgba(0,0,0,0.75);
+}
+.navheadshadow{
+    position: absolute;
+    width: max-content;
+    font-size: 25px;
+    font-weight: bold;
+    height: max-content;
+    margin-left: 5vw;
+    z-index: -1;
+    text-shadow:
+        0px 0px 5px rgba(0,0,0.5),
+        0px 0px 20px rgba(0,0,0.5),
+        0px 0px 40px rgba(0,0,0.5);
+}
+.navhead{
+    display: flex;
+    font-size: 25px;
+    cursor: pointer;
+    font-weight: bold;
+    position: absolute;
+    width: max-content;
+    margin-left: 5vw;
+    flex-direction: column;
+    background: linear-gradient(to right, #3333ff, #ff00cc);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.navhead::after{
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    border-radius: 25px;
+    background-color: #ff00cc;
+    box-shadow: 0px 0px 4px black;
+    transition: 0.3s;
+}
+.navhead:hover::after{
+    width: 100%;
+}
+.nav{
+    display: flex;
+    margin-left: auto;
+    margin-right: 5vw;
+    gap: 30px;
+}
+.navopts{
+    position: relative;
+    color: white;
+    cursor: pointer;
+    font-weight: 400;
+    font-size: 13.5px;
+    transition: 0.3s ease;
+    transform-origin: left;
+    text-shadow:
+        0px 0px 5px rgba(0,0,0.5),
+        0px 0px 20px rgba(0,0,0.5),
+        0px 0px 40px rgba(0,0,0.5);
+}
+.navopts::after{
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1.5px;
+    border-radius: 25px;
+    background-color: #ff00cc;
+    box-shadow: 0px 0px 4px black;
+    transition: 0.3s;
+    text-shadow:
+        0px 0px 5px rgba(0,0,0.5),
+        0px 0px 20px rgba(0,0,0.5),
+        0px 0px 40px rgba(0,0,0.5);
+}
+.navopts:hover{
+    color: #ff00cc;
+}
+.navopts:hover::after{
+    width: 100%;
+}

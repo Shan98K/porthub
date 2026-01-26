@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 Not Found</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: linear-gradient(135deg, #f0f0f0, #c0c0ff);
+      overflow: hidden;
+    }
+    .container {
+      text-align: center;
+      position: relative;
+    }
+    .container span {
+      font-size: 10rem;
+      font-weight: bold;
+      display: inline-block;
+      margin: 0 1rem;
+      color: #333;
+      animation: bounce 1s infinite;
+    }
+    .message {
+      font-size: 1.5rem;
+      color: #555;
+      margin-top: 1rem;
+    }
+    .home-btn {
+      margin-top: 2rem;
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      cursor: pointer;
+      border: none;
+      border-radius: 8px;
+      background: #333;
+      color: #fff;
+      transition: 0.3s;
+    }
+    .home-btn:hover {
+      background: #555;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-30px); }
+    }
+
+    body::before {
+      content: '';
+      position: absolute;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle at center, rgba(255,255,255,0.15), transparent 70%);
+      animation: rotate 20s linear infinite;
+    }
+    @keyframes rotate {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <span style="animation-delay: 0s">4</span>
+    <span style="animation-delay: 0.2s">0</span>
+    <span style="animation-delay: 0.4s">4</span>
+    <p class="message">Oops! Page not found.</p>
+    <button class="home-btn" onclick="window.location.href='../'">Go Home</button>
+  </div>
+</body>
+</html>

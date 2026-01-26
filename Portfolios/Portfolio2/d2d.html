@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shan98K</title>
+  <link rel="shortcut icon" href="./images/Jlogo.ico" type="image/x-icon">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="slider.css">
+  <link rel="stylesheet" href="monitor.css">
+  <link rel="stylesheet" href="d2d.css">
+  <link rel="stylesheet" href="base.css">
+  <link rel="stylesheet" href="base2.css">
+  <link rel="stylesheet" href="base3.css">
+  <link rel="stylesheet" href="clock.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  
+  <!-- Background -->
+  <div class="background">
+    <div class="celestial"></div>
+    <div class="buildings-container"></div>
+  </div>
+  
+  <!-- BacK BTN -->
+  <div class="linkbutton" onclick="goBack()">
+    <a class="base_a" href="main.html">
+      <button>BacK</button>
+    </a>
+  </div>
+  
+  <!-- slider -->
+  <div class="slidersbox">
+    <!-- sliderLeft -->
+    <div id="sliderleft" class="slider" onclick="scrollLeft()">
+      <img src="./images/previous.png" id="backBtn" alt="">
+    </div>
+    
+    <!-- D2D Pages -->
+    <div class="scroll-container" id="scrollContainer">
+      <div class="section">Left 2</div>
+
+      <div class="section">Left 1</div>
+
+      <div class="section" id="sectionmiddle">
+
+        <!-- FRONTEND Developer -->
+        <div class="base">
+          <div class="baseFED">
+            <div class="baseFE">FRONTEND</div>
+            <div class="baseD">Developer</div>
+          </div>
+        </div>
+        
+        <!-- Bar Clock -->
+        <div class="clock-container">
+          <div class="clock">
+            <div class="outline">
+              <div class="outlineshadow"></div>
+              <div class="outlineshadowbox"></div>
+            </div>
+            <div class="time-box">
+              <div class="numbers" id="hours-first">
+                <li>0</li>
+                <li>1</li>
+                <li>2</li>
+              </div>
+            </div>
+            <div class="time-box">
+              <div class="numbers" id="hours-second">
+                <li>0</li>
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+                <li>5</li>
+                <li>6</li>
+                <li>7</li>
+                <li>8</li>
+                <li>9</li>
+              </div>
+            </div>
+            <div class="time-box">
+              <div class="numbers" id="minutes-first">
+                <li>0</li>
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+                <li>5</li>
+              </div>
+            </div>
+            <div class="time-box">
+              <div class="numbers" id="minutes-second">
+                <li>0</li>
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+                <li>5</li>
+                <li>6</li>
+                <li>7</li>
+                <li>8</li>
+                <li>9</li>
+              </div>
+            </div>
+            <div class="time-box">
+              <div class="numbers" id="seconds-first">
+                <li>0</li>
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+                <li>5</li>
+              </div>
+            </div>
+            <div class="time-box">
+              <div class="numbers" id="seconds-second">
+                <li>0</li>
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+                <li>5</li>
+                <li>6</li>
+                <li>7</li>
+                <li>8</li>
+                <li>9</li>
+              </div>
+            </div>
+          <div class="outline2"></div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="section">Right 1</div>
+
+      <div class="section">Right 2</div>
+    </div>
+
+    
+    <!-- sliderRight -->
+    <div id="sliderright" class="slider" onclick="scrollRight()">
+      <img src="./images/next.png" id="nextBtn" alt="">
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+  
+  
+  
+  
+  
+  
+  <script src="clock.js"></script>
+  <script src="opencenter.js"></script>
+  <script src="scrollbtn.js"></script>
+  <script src="scrollmouse.js"></script>
+  <script src="celestial.js"></script>
+  <script src="buildings.js"></script>
+</body>
+</html>

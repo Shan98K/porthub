@@ -1,0 +1,84 @@
+.base3{
+    display: flex;
+    justify-content: space-evenly;
+}
+.doublehashes.wrapped-half {
+  padding-inline: 20px;
+  justify-content: start;
+}
+.doublehashes{
+    padding-inline: 10px;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    width: max-content;
+    max-width: 100%;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+.hashholder{
+    display: flex;
+    justify-content: start;
+    text-decoration: none;
+    align-items: center;
+    padding: 3.5px;
+    overflow: hidden;
+    position: relative;
+    border-radius: 18.5px;
+    background-color: grey;
+    box-shadow:
+        1px 1px 2px rgba(0,0,0,1),
+        1px 1px 5px rgba(0,0,0,1);
+}
+.runninglight{
+    width: 100%;
+    height: 50%;
+    margin: -3.5px;
+    filter: blur(10px);
+    position: absolute;
+    border-radius: 20px;
+    animation: rotate 1s linear infinite;
+    background: linear-gradient(to right, darkblue, purple);
+}
+.hashes{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    color: white;
+    padding-inline: 25px;
+    border-radius: 15px;
+    background-color: rgba(0,0,0,0.95);
+    cursor: pointer;
+    text-shadow:
+        1px 1px 2px rgba(0,0,0,1),
+        1px 1px 5px rgba(0,0,0,1),
+        1px 1px 10px rgba(0,0,0,1);
+}
+.hashholder:hover{
+    background-color: black;
+    box-shadow:
+        0px 0px 2px rgba(128,128,128,1),
+        0px 0px 5px rgba(128,128,128,1);
+}
+.hashholder:hover .hashes{
+    background-color: rgba(128,128,128,0.90);
+    box-shadow:
+        1px 1px 2px rgba(0,0,0,1),
+        1px 1px 5px rgba(0,0,0,1)inset;
+}
+.hashholder:has(.hashes:hover) .runninglight {
+    filter: blur(5px);
+    transition: 0.3s ease;
+    animation: rotate 3s linear infinite;
+    background: linear-gradient(to right, rgb(0, 255, 255), rgb(255, 0, 255));
+}
+@keyframes rotate {
+    0% {
+        rotate: 0deg;
+    }
+    100% {
+        rotate: 360deg;
+    }
+}

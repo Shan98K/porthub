@@ -1,0 +1,53 @@
+.base{
+    display: flex;
+    width: 100%;
+    padding: 20px;
+    justify-content: space-evenly;
+    background: transparent;
+}
+.linkbutton{
+    z-index: 1;
+    display: flex;
+    padding: 20px;
+}
+.base_a{
+    height: fit-content;
+    width: fit-content;
+    border-radius: 30%;
+    margin-top: auto;
+}
+.base_a button{
+    font-size: 1.25rem;
+    font-weight: 700;
+    padding-block: 2.5px;
+    padding-inline: 7.5px;
+    border-radius: 30%;
+    background: transparent;
+    transition: 0.3s;
+}
+.base_a button:hover{
+    background: rgba(240, 248, 255, 0.5);
+}
+.base_a button:active{
+    background: grey;
+    transition: 0s;
+}
+.baseFED{
+    display: flex;
+    flex-direction: column;
+    filter: blur(0.5px);
+    cursor: context-menu;
+}
+.baseFE{
+    margin-top: -17.5px;
+    font-size: 50px;
+    color: white;
+    font-weight: bolder;
+    text-shadow: 1px 1px 4px rgb(0, 0, 0);
+}
+.baseD{
+    margin-top: -30px;
+    font-size: 50.45px;
+    font-weight: bold;
+    text-shadow: 1px 1px 3px rgb(255, 255, 255);
+}

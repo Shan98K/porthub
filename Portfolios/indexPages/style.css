@@ -1,0 +1,578 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background: #000;
+    overflow-x: hidden;
+}
+.background{
+    z-index: -1;
+    position: fixed;
+    width: 100%;
+    height: 150dvh;
+    inset: 0;
+    background: transparent;
+}
+#laser-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+.cyber-dot {
+    position: absolute;
+    z-index: -1;
+    bottom: 0;
+    border-radius: 50%;
+    pointer-events: none;
+    animation-name: floatUp;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+}
+@keyframes floatUp {
+    0% {
+        transform: translateY(0);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100vh);
+        opacity: 0;
+    }
+}
+header{
+    position: sticky;
+    top: 0;
+    width: 100%;
+    height: 100px;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.headBox{
+    z-index: 1;
+    width: 70%;
+    height: 60px;
+    background: white;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    position: relative;
+    padding-inline-end: 20px;
+    opacity: 0;
+    transform: translateY(100px) scale(0.8);
+    box-shadow: 1px 1px 4px black;
+    animation: appearUp 0.4s ease-in forwards;
+}
+.headBox::after{
+    content: "";
+    display: none;
+    z-index: -1;
+    position: absolute;
+    background: transparent;
+    right: -17.5px;
+    border: 2px solid transparent;
+    width: 75px;
+    height: 36.5px;
+    border-radius: 25px;
+    box-shadow: 1px 1px 4px black;
+}
+.headBox::before{
+    content: "";
+    z-index: 0;
+    display: none;
+    position: absolute;
+    background: white;
+    right: -0.25px;
+    border: 2px solid transparent;
+    width: 75px;
+    height: 57px;
+    border-radius: 30px;
+}
+@keyframes appearUp {
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+.headName{
+    display: flex;
+    align-items: center;
+    left: 20px;
+    font-family: "AudioWide";
+    position: absolute;
+    text-decoration: none;
+    color: black;
+    overflow: hidden;
+    border-radius: 50px;
+    text-shadow: 0 2px 2px rgba(128, 128, 128, 0.8);
+    opacity: 0;
+    transform:  translateX(50px) scale(0.8);
+    animation: comeUpforNotPhone 0.5s ease-in forwards 1s;
+}
+.headName :first-child{
+    z-index: 2;
+    font-size: 30px;
+    font-weight: 900;
+}
+.headName :last-child{
+    font-weight: 800;
+    font-size: 20px;
+    z-index: 2;
+}
+.headName::after{
+    content: "";
+    z-index: 1;
+    position: absolute;
+    left: 0;
+    width: 20px;
+    height: 100px;
+    transform: skew(-30deg) translateX(-100px);
+    filter: blur(20px);
+    background: rgba(0, 255, 255, 0.8);
+    transition: 0.5s;
+}
+.headName:hover::after{
+    transform: skew(-30deg) translateX(200px);
+}
+.aboutBox{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Poppins";
+    background: transparent;
+    font-size: 15px;
+}
+.aboutToggle {
+    background: black;
+    border: 2px solid white;
+    width: 75px;
+    height: 40px;
+    border-radius: 25px;
+    position: absolute;
+    /* Hidden from here */
+    display: none;
+    align-items: center;
+}
+.toggleBall {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: white;
+    transform: translateX(5px);
+    transition: 0.3s ease-in;
+}
+.aboutContainerHere{
+    z-index: 2;
+    font-size: 5.8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 20px;
+    background: transparent;
+    padding-inline: 20px;
+    height: 55px;
+    gap: 35px;
+}
+.aboutHereA{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    opacity: 0;
+    scale: 5;
+    transform:  translateX(-50px);
+    animation: comeUpforNotPhone 0.3s ease-in forwards;
+}
+.aboutHere{
+    flex: 0 0 auto;
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    filter: drop-shadow( 1.5px 1px 1px black);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: 0.3s;
+}
+.aboutContainerHere a:nth-child(6) { animation-delay: 1.2s; }
+.aboutContainerHere a:nth-child(5) { animation-delay: 1.4s; }
+.aboutContainerHere a:nth-child(4) { animation-delay: 1.6s; }
+.aboutContainerHere a:nth-child(3) { animation-delay: 1.8s; }
+.aboutContainerHere a:nth-child(2) { animation-delay: 2s; }
+.aboutContainerHere a:nth-child(1) { animation-delay: 2.2s; }
+@keyframes comeUpforNotPhone {
+    to {
+        scale: 1;
+        transform: translateX(0px);
+        opacity: 1;
+    }
+}
+.aboutHere:hover {
+    scale: 1.2;
+    padding: 6.5px;
+    border-radius: 10px;
+    transform: rotateY(0);
+    border: 1px dotted black;
+    box-shadow: 0 0 2px black inset;
+}
+.aboutHere:active {
+    scale: 1.1;
+    background: rgb(170, 170, 170);
+    transition: 0s;
+}
+.aboutContainer {
+    z-index: 2;
+    display: none;
+    align-items: center;
+    justify-content: flex-start;
+    border-radius: 20px;
+    font-size: 5.8px;
+    background: rgb(222, 222, 222);
+    box-shadow: 1px 2px 5px black inset;
+    overflow-x: auto;
+    overflow-y: hidden;
+    /* makes items snap nicely */
+    scroll-snap-type: x mandatory;
+    padding-inline: 20px;
+    width: 180px;
+    height: 55px;
+    scrollbar-width: none;
+}
+.aboutScroll {
+    display: flex;
+    align-items: center;
+    background: transparent;
+    gap: 25px;
+}
+.aboutScroll :not(:first-child) , .aboutScroll :not(:last-child){
+    flex: 0 0 auto; /* don’t shrink */
+    width: 25px;
+    height: 25px;
+    background: transparent;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    opacity: 0.25;
+    transform: scale(1);
+    scroll-snap-align: center;
+    filter: drop-shadow( 0px 1px 1.5px black);
+}
+.aboutScroll :first-child , .aboutScroll :last-child{
+    flex: 0 0 auto; /* don’t shrink */
+    width: 30px;
+    height: 30px;
+    background: transparent;
+    border-radius: 10px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    opacity: 0;
+    transform: scale(1);
+    scroll-snap-align: center;
+    filter: drop-shadow( 1.5px 1px 1px black);
+    box-shadow: none;
+}
+.aboutScroll :nth-child(2){
+    background: url("./img/Mail.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.aboutScroll :nth-child(3){
+    background: url("./img/github.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.aboutScroll :nth-child(4){
+    background: url("./img/LinkedIn.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.aboutScroll :nth-child(5){
+    background: url("./img/XTwitter.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.aboutScroll :nth-child(6){
+    background: url("./img/instagram_icon.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.aboutScroll :nth-child(7){
+    background: url("./img/Telegram.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.aboutScroll :nth-child(8){
+    background: url("./img/");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.about.adjacent {
+    transform: scale(1.25);
+    opacity: 0.55;
+    filter: drop-shadow( 0 0 1px purple);
+}
+.about.upFront {
+    opacity: 1;
+    z-index: 1;
+    transform: scale(1.5);
+    filter: drop-shadow( 0 0 2px cyan);
+}
+.page1{
+    width: 100%;
+    background: transparent;
+    padding-right: 60px;
+    position: relative;
+}
+.decoration{
+    position: relative;
+    width: 150px;
+    height: 250px;
+    background: url("Assets/codePhone.png");
+    background-size: cover;
+    filter: blur(1px);
+    background-position: center;
+    margin-left: auto;
+    box-shadow: 
+                0 0 50px black inset,
+                0 0 20px black inset,
+                0 0 10px black inset,
+                0 0 5px black inset;
+}
+.decorativeText{
+    position: absolute;
+    bottom: 0;
+    left: calc(100% + 4px);
+    font-size: 10px;
+    color: white;
+    filter: blur(0.3px);
+}
+.decorativeText span{
+    display: inline-block;
+    rotate: 45deg;
+}
+.infoPage1{
+    position: absolute;
+    z-index: 1;
+    background: transparent;
+    height: 100%;
+    font-family: 'Courier New', monospace, Consolas;
+    flex-direction: column;
+    padding-block-start: 50px;
+    padding-left: 20px;
+    font-size: 12px;
+    height: 300px;
+    color: white;
+}
+.greeting , .intro{
+    display: flex;
+    align-items: center;
+    font-family: Consolas, 'Courier New', monospace;
+}
+.paraAboutMe{
+    display: flex;
+    height: 80px;
+    width: max-content;
+}
+.paraAbout{
+    flex-direction: column;
+    text-align: start;
+}
+grey{
+    font-family: 'Courier New', monospace, Consolas;
+    color: #7f8c8d;
+}
+cyan{
+    font-family: 'Courier New', monospace, Consolas;
+    color: #00ffcc;
+}
+brown{
+    font-family: 'Courier New', monospace, Consolas;
+    color: #ffb575;
+}
+pink{
+    color: #ff79c6;
+    font-family: 'Courier New', monospace, Consolas;
+}
+#typer {
+    font-size: 15px;
+    padding-right: 3px;
+    height: 1.5em;
+    display: inline-block;
+    color: white;
+    border-right: 2px solid #00ff40;
+    animation: blink 0.6s infinite;
+}
+@keyframes blink {
+    0%, 50% { border-color: #00ffcc; }
+    51%, 100% { border-color: transparent; }
+}
+.infoPage1 p button{
+    font-family: 'Courier New', monospace, Consolas;
+    color: white;
+    background: transparent;
+    border: none;
+}
+.buttonBox button{
+    padding-inline: 5px;
+    margin-inline: 10px;
+    font-family: Consolas, 'Courier New', monospace;
+    border: 1px solid transparent;
+}
+.buttonBox button:hover{
+    border-radius: 2px;
+    border: 1px solid cyan;
+    background: rgb(200, 200, 200);
+}
+.buttonBox button:active{
+    background: grey;
+}
+.picBox{
+    margin-top: 50px;
+    padding-inline: 20px;
+    font-size: 12px;
+    color: white;
+    font-family: 'Courier New', monospace, Consolas;
+}
+.picFolder{
+    width: 300px;
+    height: 300px;
+    background-color: red;
+    background: url(./img/folderImg.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    transform: scale(0.75);
+}
+.myPhoto{
+    position: absolute;
+    background: url(./Assets/Shanu\ \(1\).png);
+    height: 120px;
+    width: 175px;
+    bottom: 71px;
+    left: 55px;
+    transform: rotate(-5.35deg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: grayscale(60%);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.page2 , .page3 {
+    width: 100%;
+    height: 100dvh;
+    background: transparent;
+}
+.page2{
+    background: yellow;
+}
+.page3{
+    background: red;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 950px) {
+    .aboutContainerHere{
+        gap: 20px;
+    }
+}
+@media (max-width: 950px) {
+    .aboutContainerHere{
+        gap: 20px;
+    }
+    .aboutHere{
+        width: 30px;
+        height: 30px;
+    }
+}
+@media (max-width: 720px) {
+    .aboutContainerHere{
+        gap: 15px;
+    }
+}
+/* Only apply toggle styles on small screens */
+@media (max-width: 650px) {
+    .aboutContainerHere{
+        display: none;
+    }
+    .aboutToggle , .headBox::after , .headBox::before{
+        display: flex;
+    }
+    /* Show items when active */
+    .aboutBox.activate .aboutContainer {
+        display: flex;
+        position: absolute;
+        border-radius: 50px;
+        transform: translateX(-150px);
+    }
+    /* Move the ball when active */
+    .aboutToggle.activate .toggleBall {
+        transform: translateX(40px);
+    }
+}

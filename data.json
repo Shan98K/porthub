@@ -1,0 +1,162 @@
+{
+  "Portfolio Alpha": [
+    {
+      "title": "HTML",
+      "desc": "Structured content with semantic elements and proper headings.",
+      "link": "./Portfolios/ChatGPT Portfolio/First.html"
+    },
+    {
+      "title": "CSS",
+      "desc": "Responsive layout with flexbox and grid, including hover effects.",
+      "link": "./Portfolios/ChatGPT Portfolio/First.html"
+    },
+    {
+      "title": "JS",
+      "desc": "Interactive features and dynamic content updates for the site.",
+      "link": "./Portfolios/ChatGPT Portfolio/First.html"
+    },
+    {
+      "title": "Live Demo",
+      "desc": "Portfolio Alpha - github - @shan98k",
+      "link": "./Portfolios/ChatGPT Portfolio/First.htm"
+    }
+  ],
+
+  "Creative Hub": [
+    {
+      "title": "HTML",
+      "desc": "Clean markup for accessibility and better SEO performance.",
+      "link": "./Portfolios/INdex Profesional/index.html"
+    },
+    {
+      "title": "CSS",
+      "desc": "Custom styles, animations, and modern design principles applied.",
+      "link": "./Portfolios/INdex Profesional/index.html"
+    },
+    {
+      "title": "JS",
+      "desc": "Implemented client-side logic for a smooth user experience.",
+      "link": "./Portfolios/INdex Profesional/index.html"
+    },
+    {
+      "title": "Live Demo",
+      "desc": "Creative Hub - github - @shan98k",
+      "link": "./Portfolios/INdex Profesional/index.html"
+    }
+  ],
+
+  "NextGen Projects": [
+    {
+      "title": "HTML",
+      "desc": "Organized structure for headings, paragraphs, and sections.",
+      "link": "./Portfolios/indexPages/main.html"
+    },
+    {
+      "title": "CSS",
+      "desc": "Styling for consistent typography, color schemes, and layout.",
+      "link": "./Portfolios/indexPages/main.html"
+    },
+    {
+      "title": "JS",
+      "desc": "Enhanced interactivity with event listeners and DOM manipulation.",
+      "link": "./Portfolios/indexPages/main.html"
+    },
+    {
+      "title": "Live Demo",
+      "desc": "NextGen Projects - github - @shan98k",
+      "link": "./Portfolios/indexPages/main.html"
+    }
+  ],
+
+  "Tech Vision": [
+    {
+      "title": "HTML",
+      "desc": "Semantic elements and meta tags to ensure proper content flow.",
+      "link": "./Portfolios/myPortfolio/index.html"
+    },
+    {
+      "title": "CSS",
+      "desc": "Modern responsive design with grids, flexbox, and media queries.",
+      "link": "./Portfolios/myPortfolio/index.html"
+    },
+    {
+      "title": "JS",
+      "desc": "Dynamic content updates, form validation, and UI enhancements.",
+      "link": "./Portfolios/myPortfolio/index.html"
+    },
+    {
+      "title": "Live Demo",
+      "desc": "Tech Vision - github - @shan98k",
+      "link": "./Portfolios/myPortfolio/index.html"
+    }
+  ],
+
+  "Innovate Studio": [
+    {
+      "title": "HTML",
+      "desc": "Clean and semantic markup for easy maintenance and readability.",
+      "link": "./Portfolios/Portfolio CRAZY/index.html"
+    },
+    {
+      "title": "CSS",
+      "desc": "Advanced styling, hover effects, and responsive layouts.",
+      "link": "./Portfolios/Portfolio CRAZY/index.html"
+    },
+    {
+      "title": "JS",
+      "desc": "Smooth interactive features using vanilla JavaScript.",
+      "link": "./Portfolios/Portfolio CRAZY/index.html"
+    },
+    {
+      "title": "Live Demo",
+      "desc": "Innovate Studio - github - @shan98k",
+      "link": "./Portfolios/Portfolio CRAZY/index.html"
+    }
+  ],
+
+  "Digital Showcase": [
+    {
+      "title": "HTML",
+      "desc": "Well-structured semantic HTML for clean content presentation.",
+      "link": "./Portfolios/Portfolio2/index.html"
+    },
+    {
+      "title": "CSS",
+      "desc": "Modern UI styling with responsive layouts and smooth transitions.",
+      "link": "./Portfolios/Portfolio2/index.html"
+    },
+    {
+      "title": "JS",
+      "desc": "Client-side logic for interactions and dynamic UI behavior.",
+      "link": "./Portfolios/Portfolio2/index.html"
+    },
+    {
+      "title": "Live Demo",
+      "desc": "Digital Showcase - github - @shan98k",
+      "link": "./Portfolios/Portfolio2/index.html"
+    }
+  ],
+
+  "Code Playground": [
+    {
+      "title": "HTML",
+      "desc": "Minimal and clean markup focused on performance.",
+      "link": "./Portfolios/portofolio3-main/portfolio3 copy/index.html"
+    },
+    {
+      "title": "CSS",
+      "desc": "Experimental styles, animations, and layout techniques.",
+      "link": "./Portfolios/portofolio3-main/portfolio3 copy/index.html"
+    },
+    {
+      "title": "JS",
+      "desc": "Playground for testing JavaScript concepts and interactions.",
+      "link": "./Portfolios/portofolio3-main/portfolio3 copy/index.html"
+    },
+    {
+      "title": "Live Demo",
+      "desc": "Code Playground - github - @shan98k",
+      "link": "./Portfolios/portofolio3-main/portfolio3 copy/index.html"
+    }
+  ]
+}

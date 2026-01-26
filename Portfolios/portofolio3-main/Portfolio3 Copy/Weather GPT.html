@@ -1,0 +1,318 @@
+<!doctype html>
+<!--
+weather-dashboard.html
+Single-file HTML/CSS/JS weather dashboard (works in the browser).
+Features:
+- Uses Open-Meteo (no API key) for current, hourly and daily data.
+- Geolocation with fallback city search (small fallback list built-in).
+- Hourly temperature line chart and monthly rainfall bar chart using Chart.js via CDN.
+- Responsive layout that mimics the sample image: large left card + right details panel.
+- Light + dark gradient theme, map placeholder, and simple animations.
+
+How to use:
+1. Save this file as `weather-dashboard.html`.
+2. Open it in your browser (double-click or drag to browser). No build steps required.
+3. Allow geolocation if you want it to auto-locate; otherwise type a fallback city (e.g., Rajshahi, Dhaka, London, New York) and press Enter.
+
+Notes:
+- Chart.js is loaded from CDN. If you want offline use, download Chart.js and update the <script> src.
+- For a production-ready city search you can later integrate a geocoding API (Mapbox, OpenCage, Google Geocoding).
+-->
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Weather Dashboard</title>
+
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <style>
+    :root{
+      --bg:#414a58;
+      --card:#ffffff;
+      --muted:#8b95a1;
+      --accent1:#0ea5e9;
+      --accent2:#6366f1;
+      --panel:#0b1220;
+      --glass: rgba(255,255,255,0.06);
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial;color:#0f172a;background:linear-gradient(180deg,#3f4552 0%, #2f3743 100%);min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px}
+
+    .wrap{width:100%;max-width:1200px;display:grid;grid-template-columns:1fr 340px;gap:20px}
+
+    /* Left large card */
+    .main-card{background:linear-gradient(180deg,rgba(255,255,255,0.98),rgba(245,247,250,0.98));border-radius:16px;padding:20px;box-shadow:0 8px 30px rgba(2,6,23,0.6)}
+    .top-row{display:flex;justify-content:space-between;align-items:flex-start}
+    .greeting{color:#0f172a}
+    .time-large{font-size:44px;font-weight:700;margin-top:6px}
+    .time-sub{color:var(--muted);font-size:13px;margin-top:4px}
+
+    .search{display:flex;gap:8px;align-items:center}
+    .search input{padding:8px 10px;border-radius:8px;border:1px solid #e6eef8;width:200px}
+    .coords{font-size:12px;color:var(--muted);margin-top:6px;text-align:right}
+
+    .hero{margin-top:18px;background:linear-gradient(90deg,#1f2937 0%,#111827 100%);color:white;padding:18px;border-radius:12px;display:flex;justify-content:space-between;align-items:center}
+    .hero .left{max-width:70%}
+    .hero .temp{font-size:34px;font-weight:700}
+    .hero .meta{font-size:13px;color:rgba(255,255,255,0.85);margin-top:6px}
+
+    .charts{margin-top:18px;display:grid;grid-template-columns:1fr;gap:14px}
+    .card{background:white;border-radius:10px;padding:12px;box-shadow:0 4px 12px rgba(15,23,42,0.06)}
+    .card h4{margin:0 0 8px 0}
+
+    .bottom-grid{display:grid;grid-template-columns:1fr 320px;gap:14px;margin-top:14px}
+    .map-placeholder{height:100%;min-height:160px;border-radius:8px;background:repeating-linear-gradient(45deg,#eef2ff33,#eef2ff33 6px,#ffffff00 6px,#ffffff00 12px);display:flex;align-items:center;justify-content:center;color:#334155}
+
+    /* Right panel */
+    .side-panel{background:linear-gradient(180deg,var(--panel),#0c1530);border-radius:14px;padding:18px;color:white;box-shadow:0 10px 30px rgba(2,6,23,0.6);display:flex;flex-direction:column}
+    .side-top{display:flex;justify-content:space-between;align-items:center}
+    .side-top .city{font-weight:700;font-size:22px}
+    .side-top .icon{font-size:36px}
+    .side-tiles{margin-top:12px;background:rgba(255,255,255,0.03);padding:12px;border-radius:10px}
+    .day-item{display:flex;justify-content:space-between;align-items:center;padding:10px 4px;border-bottom:1px solid rgba(255,255,255,0.03)}
+    .day-item:last-child{border-bottom:none}
+
+    /* Responsive */
+    @media (max-width:980px){
+      .wrap{grid-template-columns:1fr}
+      .bottom-grid{grid-template-columns:1fr}
+      .side-panel{order:2}
+    }
+
+    /* small helpers */
+    .muted{color:var(--muted)}
+    .btn{background:linear-gradient(90deg,var(--accent1),var(--accent2));color:white;padding:8px 12px;border-radius:8px;border:none;cursor:pointer}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <!-- Left main card -->
+    <div class="main-card">
+      <div class="top-row">
+        <div>
+          <div class="greeting">Good Morning, John</div>
+          <div class="time-large" id="big-time">--:--</div>
+          <div class="time-sub" id="time-sub">Loading date...</div>
+        </div>
+
+        <div class="search">
+          <input id="cityInput" placeholder="Type city & Enter (e.g., Rajshahi)" />
+          <button id="locBtn" class="btn">Locate</button>
+          <div class="coords" id="coords">Locating...</div>
+        </div>
+      </div>
+
+      <div class="hero">
+        <div class="left">
+          <div class="temp" id="currentTemp">--° C</div>
+          <div class="meta" id="currentMeta">Partly cloudy</div>
+        </div>
+        <div class="right">
+          <div style="font-size:46px">☁️</div>
+        </div>
+      </div>
+
+      <div class="charts">
+        <div class="card">
+          <h4>Hourly Forecast</h4>
+          <canvas id="hourChart" style="width:100%;height:220px"></canvas>
+        </div>
+
+        <div class="bottom-grid">
+          <div class="card">
+            <h4>Monthly Rainfall (sample)</h4>
+            <canvas id="rainChart" style="width:100%;height:160px"></canvas>
+          </div>
+
+          <div class="card">
+            <h4>World Weather Reader (placeholder)</h4>
+            <div class="map-placeholder">Interactive map placeholder<br><small class="muted">(Integrate Leaflet or Mapbox later)</small></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right side panel -->
+    <div class="side-panel">
+      <div class="side-top">
+        <div>
+          <div class="city" id="sideCity">Your Location</div>
+          <div class="muted" id="sideSub">Partly Cloudy</div>
+        </div>
+        <div class="icon">🌦️</div>
+      </div>
+
+      <div class="side-tiles" id="sideTiles">
+        <div style="display:flex;justify-content:space-between"><div>Temperature</div><div id="sideTemp">--° C</div></div>
+        <div style="display:flex;justify-content:space-between;margin-top:6px"><div>Wind</div><div id="sideWind">-- km/h</div></div>
+        <div style="display:flex;justify-content:space-between;margin-top:6px"><div>Humidity</div><div id="sideHum">--%</div></div>
+        <div style="display:flex;justify-content:space-between;margin-top:6px"><div>Precip</div><div id="sidePrecip">-- mm</div></div>
+      </div>
+
+      <div style="margin-top:12px;background:rgba(255,255,255,0.03);padding:10px;border-radius:8px">
+        <div style="font-weight:600">Next Days</div>
+        <div id="nextDays" style="margin-top:8px"></div>
+      </div>
+
+      <div style="margin-top:auto;display:flex;gap:8px">
+        <button class="btn" id="btn4">4 Days</button>
+        <button class="btn" id="btn15">15 Days</button>
+      </div>
+    </div>
+  </div>
+
+<script>
+// Simple fallback cities
+const FALLBACK = {
+  'Rajshahi': {latitude:24.3745, longitude:88.6042},
+  'Dhaka': {latitude:23.8103, longitude:90.4125},
+  'London': {latitude:51.5074, longitude:-0.1278},
+  'New York': {latitude:40.7128, longitude:-74.0060}
+};
+
+const els = {
+  bigTime: document.getElementById('big-time'),
+  timeSub: document.getElementById('time-sub'),
+  coords: document.getElementById('coords'),
+  currentTemp: document.getElementById('currentTemp'),
+  currentMeta: document.getElementById('currentMeta'),
+  sideCity: document.getElementById('sideCity'),
+  sideSub: document.getElementById('sideSub'),
+  sideTemp: document.getElementById('sideTemp'),
+  sideWind: document.getElementById('sideWind'),
+  sideHum: document.getElementById('sideHum'),
+  sidePrecip: document.getElementById('sidePrecip'),
+  nextDays: document.getElementById('nextDays'),
+  cityInput: document.getElementById('cityInput'),
+  locBtn: document.getElementById('locBtn')
+};
+
+function updateClock(){
+  const now = new Date();
+  const hh = now.getHours();
+  const mm = now.getMinutes().toString().padStart(2,'0');
+  els.bigTime.textContent = `${hh}:${mm}`;
+  els.timeSub.textContent = now.toLocaleString();
+}
+setInterval(updateClock,1000);
+updateClock();
+
+let hourChart=null, rainChart=null;
+function createCharts(){
+  const ctxH = document.getElementById('hourChart').getContext('2d');
+  hourChart = new Chart(ctxH,{
+    type:'line',
+    data:{labels:[], datasets:[{label:'Temp °C',data:[],fill:false,tension:0.25,borderWidth:2}]},
+    options:{plugins:{legend:{display:false}},scales:{x:{grid:{display:false}}}}
+    });
+
+  const ctxR = document.getElementById('rainChart').getContext('2d');
+  rainChart = new Chart(ctxR,{
+    type:'bar',
+    data:{labels:[], datasets:[{label:'Rain mm',data:[],backgroundColor:'rgba(99,102,241,0.7)'}]},
+    options:{plugins:{legend:{display:false}},scales:{x:{grid:{display:false}}}}
+  });
+}
+createCharts();
+
+// Map time ranges
+const DAYS = 5;
+
+async function fetchWeather(lat, lon){
+  const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&hourly=temperature_2m,precipitation&daily=temperature_2m_max,temperature_2m_min,precipitation_sum&current_weather=true&timezone=auto`;
+  const res = await fetch(url);
+  if(!res.ok) throw new Error('weather fetch failed');
+  return res.json();
+}
+
+function updateUIFromData(data, lat, lon, cityName){
+  // current
+  const cur = data.current_weather;
+  els.currentTemp.textContent = cur ? Math.round(cur.temperature) + '° C' : '--';
+  els.sideTemp.textContent = cur ? Math.round(cur.temperature) + '° C' : '--';
+  els.sideWind.textContent = cur ? cur.windspeed + ' km/h' : '--';
+
+  els.coords.textContent = `Lat: ${lat.toFixed(2)}, Lon: ${lon.toFixed(2)}`;
+  els.sideCity.textContent = cityName || 'Your Location';
+
+  // hourly chart: take next 24 hours
+  const times = data.hourly.time.map(t=> new Date(t));
+  const temps = data.hourly.temperature_2m;
+  const precs = data.hourly.precipitation;
+  const labels = times.slice(0,24).map(d=> d.getHours() + ':00');
+  const tdata = temps.slice(0,24);
+  const pdata = precs.slice(0,24);
+
+  hourChart.data.labels = labels;
+  hourChart.data.datasets[0].data = tdata;
+  hourChart.update();
+
+  // daily rainfall (use first 12 days if present)
+  const dlabels = data.daily.time.map(d=> d);
+  const drains = data.daily.precipitation_sum.map(n=> n);
+  rainChart.data.labels = dlabels.slice(0,12).map(d=> (new Date(d)).toLocaleDateString());
+  rainChart.data.datasets[0].data = drains.slice(0,12);
+  rainChart.update();
+
+  // side meta
+  els.currentMeta.textContent = 'Weather code: ' + (cur ? cur.weathercode : '—');
+  els.sidePrecip.textContent = (pdata[0] !== undefined) ? pdata[0] + ' mm' : '--';
+
+  // next days panel
+  const daysHtml = data.daily.time.map((d,i)=>{
+    const date = new Date(d);
+    const max = Math.round(data.daily.temperature_2m_max[i]);
+    const min = Math.round(data.daily.temperature_2m_min[i]);
+    return `<div class="day-item"><div>${date.toLocaleDateString(undefined,{weekday:'short',month:'short',day:'numeric'})}</div><div>${max}° / ${min}°</div></div>`;
+  }).slice(0,7).join('');
+  els.nextDays.innerHTML = daysHtml;
+}
+
+async function locateAndLoad(coords){
+  try{
+    const data = await fetchWeather(coords.latitude, coords.longitude);
+    updateUIFromData(data, coords.latitude, coords.longitude);
+  }catch(err){
+    console.error(err);
+    alert('Failed to load weather data. Check console.');
+  }
+}
+
+// try geolocation
+function tryGeolocate(){
+  if(navigator.geolocation){
+    navigator.geolocation.getCurrentPosition(pos=>{
+      locateAndLoad({latitude:pos.coords.latitude, longitude:pos.coords.longitude});
+    }, err=>{
+      // fallback
+      const f = FALLBACK['Rajshahi'];
+      locateAndLoad(f);
+    }, {timeout:5000});
+  } else {
+    locateAndLoad(FALLBACK['Rajshahi']);
+  }
+}
+
+// initial
+tryGeolocate();
+
+// city input
+els.cityInput.addEventListener('keydown', (e)=>{
+  if(e.key === 'Enter'){
+    const val = els.cityInput.value.trim();
+    if(!val) return;
+    if(FALLBACK[val]){
+      locateAndLoad(FALLBACK[val]);
+    } else {
+      alert('City not available in fallback list. Try Rajshahi, Dhaka, London or New York.');
+    }
+  }
+});
+
+els.locBtn.addEventListener('click', ()=> tryGeolocate());
+
+</script>
+</body>
+</html>

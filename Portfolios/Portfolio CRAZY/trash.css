@@ -1,0 +1,15 @@
+
+.fill {
+  position: absolute;
+    width: 200px; /* match loadingBar */
+    height: 100px; /* fit exactly */
+    background: linear-gradient(to right, purple, red);
+    border-radius: 20px;
+    transform: skewX(45deg) translateX(-150px); /* start completely hidden */
+    animation: fillUpEffect 1s ease-out forwards 1.5s;
+  }
+  @keyframes fillUpEffect {
+    to {
+      transform: skewX(45deg) translateX(150px);
+    }
+}
