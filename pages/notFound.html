@@ -1,79 +1,470 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>404 Not Found</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      background: linear-gradient(135deg, #f0f0f0, #c0c0ff);
-      overflow: hidden;
-    }
-    .container {
-      text-align: center;
-      position: relative;
-    }
-    .container span {
-      font-size: 10rem;
-      font-weight: bold;
-      display: inline-block;
-      margin: 0 1rem;
-      color: #333;
-      animation: bounce 1s infinite;
-    }
-    .message {
-      font-size: 1.5rem;
-      color: #555;
-      margin-top: 1rem;
-    }
-    .home-btn {
-      margin-top: 2rem;
-      padding: 0.75rem 1.5rem;
-      font-size: 1rem;
-      cursor: pointer;
-      border: none;
-      border-radius: 8px;
-      background: #333;
-      color: #fff;
-      transition: 0.3s;
-    }
-    .home-btn:hover {
-      background: #555;
-    }
+  <head>
+    <meta charset="UTF-8" />
+    <title>404 — Lost Beyond Reality</title>
 
-    @keyframes bounce {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-30px); }
-    }
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;600;800&display=swap"
+      rel="stylesheet"
+    />
 
-    body::before {
-      content: '';
-      position: absolute;
-      width: 200%;
-      height: 200%;
-      background: radial-gradient(circle at center, rgba(255,255,255,0.15), transparent 70%);
-      animation: rotate 20s linear infinite;
-    }
-    @keyframes rotate {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
-  </style>
-</head>
-<body>
-  <div class="container">
-    <span style="animation-delay: 0s">4</span>
-    <span style="animation-delay: 0.2s">0</span>
-    <span style="animation-delay: 0.4s">4</span>
-    <p class="message">Oops! Page not found.</p>
-    <button class="home-btn" onclick="window.location.href='../'">Go Home</button>
-  </div>
-</body>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        height: 100%;
+        overflow: hidden;
+      }
+
+      body {
+        font-family: "Barlow", sans-serif;
+        background: radial-gradient(circle at 20% 20%, #2b133d, #0f0816 70%);
+        color: white;
+      }
+
+      /* WRAPPER – FIXED MOBILE HEIGHT */
+      .wrapper {
+        height: 100svh; /* IMPORTANT: fixes mobile purple space */
+        display: grid;
+        place-items: center;
+        overflow: hidden;
+      }
+
+      /* CONTAINER – NO TRANSFORMS */
+      .container {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        padding-top: 0; /* controlled by media queries */
+      }
+
+      /* PARALLAX */
+      .scene {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+      }
+
+      /* CIRCLES */
+      .circle {
+        position: absolute;
+        border-radius: 50%;
+        box-shadow: inset 0 0 120px rgba(0, 0, 0, 0.6);
+      }
+
+      .circle.huge {
+        width: 900px;
+        height: 900px;
+        background: rgba(255, 255, 255, 0.04);
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      .circle.big {
+        width: 600px;
+        height: 600px;
+        background: rgba(128, 119, 234, 0.12);
+        top: 30%;
+        left: 65%;
+      }
+
+      .circle.mid {
+        width: 350px;
+        height: 350px;
+        background: rgba(255, 157, 135, 0.15);
+        top: 65%;
+        left: 30%;
+      }
+
+      /* ORBIT RINGS */
+      .orbit {
+        position: absolute;
+        border: 1px dashed rgba(255, 255, 255, 0.15);
+        border-radius: 50%;
+        animation: spin 60s linear infinite;
+      }
+
+      .orbit.one {
+        width: 500px;
+        height: 500px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      .orbit.two {
+        width: 750px;
+        height: 750px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        animation-duration: 90s;
+      }
+
+      @keyframes spin {
+        to {
+          transform: translate(-50%, -50%) rotate(360deg);
+        }
+      }
+
+      /* PARTICLES */
+      .particle {
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        background: radial-gradient(circle, #ffedc0, #ff9d87);
+        border-radius: 50%;
+        opacity: 0.9;
+        animation: float 8s ease-in-out infinite;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-40px);
+        }
+      }
+
+      /* 404 */
+      .p404 {
+        position: absolute;
+        font-size: 240px;
+        font-weight: 800;
+        letter-spacing: 10px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        animation: pop 1s cubic-bezier(0.3, 0.9, 1, 1.05) both;
+      }
+
+      .p404.blur {
+        color: #1b0f2b;
+        filter: blur(18px);
+        opacity: 0.9;
+        z-index: -1;
+      }
+
+      @keyframes pop {
+        from {
+          transform: translate(-50%, -50%) scale(7);
+          opacity: 0;
+        }
+      }
+
+      /* TEXT */
+      .text {
+        position: absolute;
+        bottom: 10%;
+        width: 100%;
+        text-align: center;
+        z-index: 5;
+      }
+
+      .text p {
+        font-size: 18px;
+        margin-bottom: 30px;
+        opacity: 0;
+        animation: fadeUp 0.8s ease forwards;
+        animation-delay: 1.6s;
+      }
+
+      @keyframes fadeUp {
+        to {
+          opacity: 1;
+          transform: translateY(-10px);
+        }
+      }
+
+      .text a {
+        padding: 15px 42px;
+        border-radius: 50px;
+        background: white;
+        color: #1b0f2b;
+        text-decoration: none;
+        font-weight: 700;
+        transition: 0.3s ease;
+      }
+
+      .text a:hover {
+        background: #ff8a8a;
+        color: white;
+      }
+
+      /* =========================
+   1300px – laptops
+========================= */
+      @media (max-width: 1300px) {
+        .p404 {
+          font-size: 18vw;
+          letter-spacing: 6px;
+        }
+
+        .circle.huge {
+          width: 75vw;
+          height: 75vw;
+        }
+
+        .circle.big {
+          width: 55vw;
+          height: 55vw;
+        }
+
+        .circle.mid {
+          width: 35vw;
+          height: 35vw;
+        }
+      }
+
+      /* =========================
+   980px – tablets
+========================= */
+      @media (max-width: 980px) {
+        .container {
+          padding-top: 10svh;
+        }
+
+        .p404 {
+          font-size: 22vw;
+        }
+
+        .circle.huge {
+          width: 85vw;
+          height: 85vw;
+        }
+
+        .circle.big {
+          width: 65vw;
+          height: 65vw;
+        }
+
+        .circle.mid {
+          width: 42vw;
+          height: 42vw;
+        }
+      }
+
+      /* =========================
+   640px – phones
+========================= */
+      @media (max-width: 640px) {
+        .container {
+          padding-top: 14svh;
+        }
+
+        .p404 {
+          font-size: 30vw;
+          letter-spacing: 2px;
+        }
+
+        .circle.huge {
+          width: 110vw;
+          height: 110vw;
+        }
+
+        .circle.big {
+          width: 80vw;
+          height: 80vw;
+        }
+
+        .circle.mid {
+          width: 55vw;
+          height: 55vw;
+        }
+
+        .orbit.one {
+          width: 70vw;
+          height: 70vw;
+        }
+
+        .orbit.two {
+          width: 100vw;
+          height: 100vw;
+        }
+
+        .text {
+          bottom: 8svh;
+        }
+
+        .text p {
+          font-size: 16px;
+          padding: 0 24px;
+        }
+      }
+
+      /* =========================
+   420px – small phones
+========================= */
+      @media (max-width: 420px) {
+        .container {
+          padding-top: 18svh;
+        }
+
+        .p404 {
+          font-size: 34vw;
+        }
+
+        .circle.huge {
+          width: 130vw;
+          height: 130vw;
+        }
+
+        .circle.big {
+          width: 95vw;
+          height: 95vw;
+        }
+
+        .circle.mid {
+          width: 65vw;
+          height: 65vw;
+        }
+
+        .orbit.one {
+          width: 85vw;
+          height: 85vw;
+        }
+
+        .orbit.two {
+          width: 120vw;
+          height: 120vw;
+        }
+
+        .text {
+          bottom: 6svh;
+        }
+
+        .text p {
+          font-size: 15px;
+          line-height: 1.5;
+        }
+
+        .text a {
+          padding: 14px 34px;
+          font-size: 15px;
+        }
+      }
+    </style>
+    <style>
+      #glass-cursor {
+        position: fixed;
+        filter: brightness(1.15) contrast(1.1);
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        pointer-events: none;
+        transform: translate(-50%, -50%);
+        z-index: 9999;
+
+        /* GLASS EFFECT */
+        background: rgba(255, 255, 255, 0.06);
+        backdrop-filter: blur(8.5px) saturate(160%);
+        -webkit-backdrop-filter: blur(18px) saturate(160%);
+
+        /* DEPTH */
+        box-shadow:
+          inset 0 0 25px rgba(255, 255, 255, 0.15),
+          0 0 40px rgba(255, 157, 135, 0.25);
+
+        border: 1px solid rgba(255, 255, 255, 0.2);
+
+        transition: transform 0.12s ease-out;
+      }
+      @media (max-width: 768px) {
+        #glass-cursor {
+          display: none;
+        }
+      }
+      @keyframes hue {
+        to {
+          filter: hue-rotate(360deg);
+        }
+      }
+
+      #glass-cursor {
+        animation: hue 12s linear infinite;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="glass-cursor"></div>
+
+    <div class="glow" id="glow"></div>
+
+    <section class="wrapper">
+      <div class="container">
+        <div id="scene" class="scene">
+          <!-- DEPTH -->
+          <div class="circle huge" data-depth="0.05"></div>
+          <div class="circle big" data-depth="0.15"></div>
+          <div class="circle mid" data-depth="0.3"></div>
+
+          <!-- ORBITS -->
+          <div class="orbit one" data-depth="0.4"></div>
+          <div class="orbit two" data-depth="0.2"></div>
+
+          <!-- 404 -->
+          <div class="p404 blur" data-depth="0.05">404</div>
+          <div class="p404" data-depth="0.25">404</div>
+        </div>
+
+        <div class="text">
+          <p>
+            This page slipped through space-time.<br />
+            Let’s get you back before reality collapses.
+          </p>
+          <a href="../">Return Home</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- PARALLAX -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script>
+    <script>
+      const scene = document.getElementById("scene");
+      new Parallax(scene, { relativeInput: true });
+
+      /* MOUSE GLOW */
+      const glow = document.getElementById("glow");
+      window.addEventListener("mousemove", (e) => {
+        glow.style.left = e.clientX + "px";
+        glow.style.top = e.clientY + "px";
+      });
+
+      /* RANDOM PARTICLES */
+      for (let i = 0; i < 18; i++) {
+        const p = document.createElement("div");
+        p.className = "particle";
+        p.style.top = Math.random() * 100 + "%";
+        p.style.left = Math.random() * 100 + "%";
+        p.style.animationDuration = 6 + Math.random() * 6 + "s";
+        p.dataset.depth = (0.5 + Math.random()).toFixed(2);
+        scene.appendChild(p);
+      }
+    </script>
+    <script>
+      const glassCursor = document.getElementById("glass-cursor");
+
+      window.addEventListener("mousemove", (e) => {
+        glassCursor.style.left = e.clientX + "px";
+        glassCursor.style.top = e.clientY + "px";
+
+        // subtle scale pulse
+        glassCursor.style.transform = "translate(-50%, -50%) scale(1.05)";
+        clearTimeout(glassCursor._t);
+        glassCursor._t = setTimeout(() => {
+          glassCursor.style.transform = "translate(-50%, -50%) scale(1)";
+        }, 60);
+      });
+    </script>
+  </body>
 </html>

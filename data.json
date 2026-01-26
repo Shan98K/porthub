@@ -18,7 +18,7 @@
     {
       "title": "Live Demo",
       "desc": "Portfolio Alpha - github - @shan98k",
-      "link": "./Portfolios/ChatGPT Portfolio/First.htm"
+      "link": "./Portfolios/ChatGPT Portfolio/First.html"
     }
   ],
 
@@ -88,6 +88,29 @@
       "title": "Live Demo",
       "desc": "Tech Vision - github - @shan98k",
       "link": "./Portfolios/myPortfolio/index.html"
+    }
+  ],
+
+  "Future Lab": [
+    {
+      "title": "HTML",
+      "desc": "Scalable and well-structured markup designed for future expansion.",
+      "link": "./Portfolios/PortFolio/index.html"
+    },
+    {
+      "title": "CSS",
+      "desc": "Modern UI styling with focus on usability, animations, and layout flow.",
+      "link": "./Portfolios/PortFolio/index.html"
+    },
+    {
+      "title": "JS",
+      "desc": "Forward-looking JavaScript features with clean logic and modular code.",
+      "link": "./Portfolios/PortFolio/index.html"
+    },
+    {
+      "title": "Live Demo",
+      "desc": "Future Lab - github - @shan98k",
+      "link": "./Portfolios/PortFolio/index.html"
     }
   ],
 
