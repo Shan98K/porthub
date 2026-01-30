@@ -2,78 +2,77 @@ const foldersEl = document.getElementById("folders");
 const tabsEl = document.getElementById("tabs");
 const gridEl = document.getElementById("grid");
 
-let data = {};    // Holds JSON data
-let active = "";  // Currently active website
+let data = {};
+let active = "";
 
-// Fetch data.json dynamically
+// Load data.json
 fetch("data.json")
   .then(res => {
-    if (!res.ok) throw new Error("Could not load data.json");
+    if (!res.ok) throw new Error("Failed to load data.json");
     return res.json();
   })
   .then(json => {
     data = json;
-    active = Object.keys(data)[0]; // default active website
+    active = Object.keys(data)[0];
     render();
   })
   .catch(err => {
-    console.error("Error loading data.json:", err);
-    gridEl.innerHTML = "<p style='color: var(--muted)'>Failed to load projects.</p>";
+    console.error(err);
+    gridEl.innerHTML = "<p>Failed to load projects.</p>";
   });
 
-// Render function
 function render() {
   foldersEl.innerHTML = "";
   tabsEl.innerHTML = "";
   gridEl.innerHTML = "";
 
-  // Create desktop folders & mobile tabs
-  Object.keys(data).forEach(website => {
-    // Desktop folder
-    const folderDiv = document.createElement("div");
-    folderDiv.className = "folder" + (website === active ? " active" : "");
-    folderDiv.textContent = website;
-    folderDiv.onclick = () => { active = website; render(); };
-    foldersEl.appendChild(folderDiv);
+  Object.keys(data).forEach(projectName => {
+    // desktop folder
+    const folder = document.createElement("div");
+    folder.className = "folder" + (projectName === active ? " active" : "");
+    folder.textContent = projectName;
+    folder.onclick = () => {
+      active = projectName;
+      render();
+    };
+    foldersEl.appendChild(folder);
 
-    // Mobile tab
-    const tabDiv = document.createElement("div");
-    tabDiv.className = "tab" + (website === active ? " active" : "");
-    tabDiv.textContent = website;
-    tabDiv.onclick = () => { active = website; render(); };
-    tabsEl.appendChild(tabDiv);
+    // mobile tab
+    const tab = document.createElement("div");
+    tab.className = "tab" + (projectName === active ? " active" : "");
+    tab.textContent = projectName;
+    tab.onclick = () => {
+      active = projectName;
+      render();
+    };
+    tabsEl.appendChild(tab);
   });
 
-  // Render each tech/project as a clickable box
-// Render each tech/project as a clickable box
-data[active].forEach(project => {
-  const item = document.createElement("div");
-  item.className = "item";
+  data[active].forEach(item => {
+    // 🚫 ignore metadata
+    if (item.__code__) return;
 
-  // Wrap the content in a link
-  const link = document.createElement("a");
-  link.href = project.link;
-  link.target = "_blank"; // open in new tab
-  link.innerHTML = `
-    <h3>${project.title}</h3>
-    <p>${project.desc || ""}</p>
-  `;
+    const card = document.createElement("div");
+    card.className = "item";
 
-  // Intercept click to check if link is valid
-  link.addEventListener("click", async (e) => {
-    e.preventDefault(); // prevent default navigation
-    try {
-      const res = await fetch(project.link, { method: "HEAD" }); // check if link exists
-      if (!res.ok) throw new Error("Link not reachable");
-      window.open(project.link, "_blank"); // open valid link
-    } catch (err) {
-      console.warn("Link failed, redirecting to notFound:", project.link, err);
-      window.location.href = "./pages/notFound.html"; // redirect on error
-    }
+    const link = document.createElement("a");
+    link.href = item.link;
+    link.innerHTML = `
+      <h3>${item.title}</h3>
+      <p>${item.desc || ""}</p>
+    `;
+
+    link.addEventListener("click", e => {
+      e.preventDefault();
+
+      if (item.title === "Live Demo") {
+        window.open(item.link, "_blank");
+      } else {
+        window.location.href = item.link;
+      }
+    });
+
+    card.appendChild(link);
+    gridEl.appendChild(card);
   });
-
-  item.appendChild(link);
-  gridEl.appendChild(item);
-});
-
 }

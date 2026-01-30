@@ -1,0 +1,136 @@
+/* ===== RESET ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  height: 100vh;
+  background: #0d1117;
+  color: #c9d1d9;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  overflow: hidden;
+}
+
+/* ===== FILE LIST (TOP BAR) ===== */
+aside {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 12px;
+
+  background: #010409;
+  border-bottom: 1px solid #21262d;
+
+  overflow-x: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #333 transparent;
+}
+
+aside::-webkit-scrollbar {
+  height: 6px;
+}
+
+aside::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+aside::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 10px;
+}
+
+aside div {
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 13px;
+  background: #161b22;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+aside div:hover {
+  background: #21262d;
+}
+
+aside div.active {
+  background: #238636;
+  color: #fff;
+}
+
+/* ===== MAIN ===== */
+main {
+  height: 100vh;
+  padding-top: 48px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ===== FILE NAME BAR ===== */
+#fileName {
+  height: 40px;
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  font-size: 13px;
+  color: #8b949e;
+  background: #0d1117;
+  border-bottom: 1px solid #21262d;
+}
+
+/* ===== CODE TERMINAL ===== */
+pre {
+  flex: 1;
+  padding: 18px;
+  background: #010409;
+  font-size: 13.5px;
+  line-height: 1.6;
+  overflow: auto;
+  white-space: pre;
+
+  scrollbar-width: thin;
+  scrollbar-color: #30363d transparent;
+}
+
+pre::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+pre::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+pre::-webkit-scrollbar-thumb {
+  background: #30363d;
+  border-radius: 10px;
+}
+
+pre::-webkit-scrollbar-thumb:hover {
+  background: #484f58;
+}
+
+/* ===== CODE ===== */
+code {
+  display: block;
+  background: transparent;
+}
+
+/* ===== STATES ===== */
+pre.loading,
+pre.error {
+  color: #8b949e;
+  font-style: italic;
+}
+
+::selection {
+  background: rgba(56, 139, 253, 0.3);
+}

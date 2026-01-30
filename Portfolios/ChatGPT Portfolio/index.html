@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Portfolio</title>
+    <meta
+      name="description"
+      content="Harsh Raj — Frontend developer & digital creator. Web apps, logos, templates, animations. One-file portfolio."
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Floating bubbles -->
+    <div class="bubbles" aria-hidden="true" id="bubbles"></div>
+
+    <!-- NAV -->
+    <header>
+      <nav class="nav">
+        <div class="logo">
+          <span class="mark"></span
+          ><a href="#top" aria-label="Home">Shan98K</a>
+        </div>
+        <a href="#work">Work</a>
+        <a href="#skills">Skills</a>
+        <a href="#process">Process</a>
+        <a href="#contact">Contact</a>
+        <div class="spacer"></div>
+        <button class="btn theme" id="themeBtn" aria-label="Toggle theme">
+          🌓 Theme
+        </button>
+        <a
+          class="btn"
+          href="mailto:harshraj@example.com?subject=Project%20idea%20for%20Harsh"
+          aria-label="Email Harsh"
+          >✉️ Hire me</a
+        >
+      </nav>
+    </header>
+
+    <!-- HERO -->
+    <main class="container" id="top">
+      <section class="hero" aria-label="Intro">
+        <div>
+          <span class="kicker">Frontend Developer • Digital Creator</span>
+          <h1 class="title">
+            <span class="glitch" data-text="Harsh Raj">Harsh Raj</span><br />
+            cooks a
+            <span class="glitch" data-text="Full‑Omelette">Full‑Omelette</span>
+            of web experiences 🍳
+          </h1>
+          <p class="lead">
+            I build fast, animated, accessible interfaces and design systems. I
+            also sell digital creations — logos, templates & micro‑animations —
+            and I’m comfortable jumping from Figma to code to Blender.
+          </p>
+          <div class="cta">
+            <a class="btn" href="#work">See projects</a>
+            <a class="btn" href="#contact">Let’s collaborate</a>
+          </div>
+          <div class="chips" aria-label="Highlights">
+            <span class="chip">Web Apps</span>
+            <span class="chip">Logos</span>
+            <span class="chip">Templates</span>
+            <span class="chip">Animations</span>
+            <span class="chip">Blender Basics</span>
+            <span class="chip">Oni AE mod enjoyer</span>
+          </div>
+        </div>
+        <div>
+          <div class="showcase" role="img" aria-label="Abstract animation">
+            <div class="spark" style="left: -40px; top: -20px"></div>
+            <div class="spark s2"></div>
+            <!-- Minimal CSS-only marquee of skills -->
+            <div
+              id="marquee"
+              style="
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                padding: 14px 0;
+                border-top: 1px solid rgba(255, 255, 255, 0.08);
+                background: linear-gradient(
+                  0deg,
+                  rgba(255, 255, 255, 0.05),
+                  transparent
+                );
+                overflow: hidden;
+              "
+            >
+              <div
+                style="
+                  display: flex;
+                  gap: 30px;
+                  white-space: nowrap;
+                  animation: roll 18s linear infinite;
+                "
+              >
+                <b>React</b><b>TypeScript</b><b>HTML</b><b>CSS</b><b>GSAP</b
+                ><b>Framer</b><b>Node</b><b>Express</b><b>Mongo</b
+                ><b>Three.js</b><b>Blender</b><b>Figma</b>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- WORK -->
+      <h2 id="work" class="section-title">Selected work</h2>
+      <section class="grid" aria-label="Projects">
+        <!-- Project 1 -->
+        <article class="card" data-tags="react,ui,animation">
+          <h3>Animated Infinite Arrows</h3>
+          <p>
+            Playful CSS/JS component with GPU‑friendly looping arrows for CTAs
+            and hero sections.
+          </p>
+          <div class="tags">
+            <span class="tag">CSS</span><span class="tag">Canvas‑free</span
+            ><span class="tag">Performance</span>
+          </div>
+        </article>
+        <!-- Project 2 -->
+        <article class="card" data-tags="spline,3d,portfolio">
+          <h3>3D Portfolio Embed</h3>
+          <p>
+            Integrated a Spline 3D scene with a11y fallbacks and theme‑aware
+            lighting.
+          </p>
+          <div class="tags">
+            <span class="tag">Spline</span><span class="tag">3D</span
+            ><span class="tag">A11y</span>
+          </div>
+        </article>
+        <!-- Project 3 -->
+        <article class="card" data-tags="branding,logo,templates">
+          <h3>Logo & Template Pack</h3>
+          <p>
+            Sold a set of clean “S” monogram logos and Notion/Web templates for
+            indie makers.
+          </p>
+          <div class="tags">
+            <span class="tag">Branding</span><span class="tag">Templates</span
+            ><span class="tag">E‑commerce</span>
+          </div>
+        </article>
+        <!-- Project 4 -->
+        <article class="card" data-tags="react,auth,ui">
+          <h3>Auth UI with Bubbles</h3>
+          <p>
+            Login/Signup flow with larger, semi‑transparent background bubbles
+            and non‑overlapping warnings.
+          </p>
+          <div class="tags">
+            <span class="tag">UX</span><span class="tag">Validation</span
+            ><span class="tag">Micro‑interactions</span>
+          </div>
+        </article>
+        <!-- Project 5 -->
+        <article class="card" data-tags="webapp,tools">
+          <h3>One‑File Landing</h3>
+          <p>
+            A zero‑dependency launch page: HTML‑only, responsive, accessible,
+            and fast.
+          </p>
+          <div class="tags">
+            <span class="tag">No build</span><span class="tag">SEO</span
+            ><span class="tag">Fast</span>
+          </div>
+        </article>
+        <!-- Project 6 -->
+        <article class="card" data-tags="gsap,framer,motion">
+          <h3>Motion Snippets</h3>
+          <p>
+            Collection of GSAP/Framer patterns for tasteful, performance‑minded
+            UI motion.
+          </p>
+          <div class="tags">
+            <span class="tag">GSAP</span><span class="tag">Framer</span
+            ><span class="tag">Timing</span>
+          </div>
+        </article>
+      </section>
+
+      <!-- SKILLS -->
+      <h2 id="skills" class="section-title">Skills at a glance</h2>
+      <section class="skills" aria-label="Skills">
+        <div class="pill">
+          <span>HTML • CSS • JS</span>
+          <div class="bar"><i style="--w: 95%"></i></div>
+        </div>
+        <div class="pill">
+          <span>React • TypeScript</span>
+          <div class="bar"><i style="--w: 88%"></i></div>
+        </div>
+        <div class="pill">
+          <span>Framer • GSAP</span>
+          <div class="bar"><i style="--w: 84%"></i></div>
+        </div>
+        <div class="pill">
+          <span>Node • Express</span>
+          <div class="bar"><i style="--w: 70%"></i></div>
+        </div>
+        <div class="pill">
+          <span>Three.js • Spline</span>
+          <div class="bar"><i style="--w: 68%"></i></div>
+        </div>
+        <div class="pill">
+          <span>Blender Basics</span>
+          <div class="bar"><i style="--w: 55%"></i></div>
+        </div>
+      </section>
+
+      <!-- PROCESS / TIMELINE -->
+      <h2 id="process" class="section-title">How I work</h2>
+      <section class="timeline" aria-label="Process">
+        <div class="step">
+          <h4>1. Discover</h4>
+          <p>Scope, goals, audience, KPI. 30‑min call + FigJam notes.</p>
+        </div>
+        <div class="step">
+          <h4>2. Design</h4>
+          <p>Wireframe → hi‑fi in Figma. Token‑first, component‑driven.</p>
+        </div>
+        <div class="step">
+          <h4>3. Build</h4>
+          <p>Ship responsive, accessible UI with clean, typed code.</p>
+        </div>
+        <div class="step">
+          <h4>4. Polish</h4>
+          <p>Perf pass, a11y checks, motion tuning, dark/light QA.</p>
+        </div>
+        <div class="step">
+          <h4>5. Handoff</h4>
+          <p>Docs, loom, and support. Optional templates & logo add‑ons.</p>
+        </div>
+      </section>
+
+      <!-- 3D / SPLINE -->
+      <h2 class="section-title">3D flavor</h2>
+      <p style="color: var(--muted); margin-top: -6px">
+        Drop in your Spline link by replacing the <code>src</code> below.
+      </p>
+      <iframe
+        class="spline"
+        src="https://my.spline.design/placeholder"
+        title="Spline 3D scene placeholder"
+        loading="lazy"
+      ></iframe>
+
+      <!-- CONTACT -->
+      <h2 id="contact" class="section-title">Contact</h2>
+      <section
+        class="grid"
+        aria-label="Contact form and links"
+        style="align-items: start"
+      >
+        <div class="card" style="grid-column: span 7">
+          <form onsubmit="return sendMail(this);">
+            <div class="inline">
+              <input
+                name="name"
+                placeholder="Your name"
+                autocomplete="name"
+                required
+              />
+              <input
+                name="email"
+                type="email"
+                placeholder="Email"
+                autocomplete="email"
+                required
+              />
+            </div>
+            <input name="subject" placeholder="Subject" required />
+            <textarea
+              name="message"
+              placeholder="Tell me about your project…"
+              required
+            ></textarea>
+            <div class="inline">
+              <button class="btn" type="submit">✉️ Send</button>
+              <a
+                class="btn"
+                href="mailto:harshraj@example.com?subject=Hello%20Harsh"
+                >Open email app</a
+              >
+            </div>
+          </form>
+        </div>
+        <div class="card" style="grid-column: span 5">
+          <h3>Elsewhere</h3>
+          <p class="muted">I’m open to freelance & collabs.</p>
+          <div class="tags">
+            <a class="tag" href="#" onclick="alert('Add your GitHub URL')"
+              >GitHub</a
+            >
+            <a class="tag" href="#" onclick="alert('Add your LinkedIn URL')"
+              >LinkedIn</a
+            >
+            <a class="tag" href="#" onclick="alert('Add your Twitter/X URL')"
+              >Twitter</a
+            >
+            <a
+              class="tag"
+              href="#"
+              onclick="alert('Add your Behance/Dribbble URL')"
+              >Design</a
+            >
+          </div>
+          <div class="chips" style="margin-top: 12px">
+            <span class="chip">India (IST)</span>
+            <span class="chip">Remote‑friendly</span>
+            <span class="chip">Ships fast</span>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <small
+        >© <span id="year"></span> Shan98K — Built as a single HTML file. No
+        builds, no deps.</small
+      >
+    </footer>
+
+    <script src="./script.js"></script>
+  </body>
+</html>

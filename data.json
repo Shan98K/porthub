@@ -3,22 +3,31 @@
     {
       "title": "HTML",
       "desc": "Structured content with semantic elements and proper headings.",
-      "link": "./Portfolios/ChatGPT Portfolio/First.html"
+      "link": "./components/codeViewer/codeViewer.html?project=Portfolio%20Alpha&type=html"
     },
     {
       "title": "CSS",
       "desc": "Responsive layout with flexbox and grid, including hover effects.",
-      "link": "./Portfolios/ChatGPT Portfolio/First.html"
+      "link": "./components/codeViewer/codeViewer.html?project=Portfolio%20Alpha&type=css"
     },
     {
       "title": "JS",
       "desc": "Interactive features and dynamic content updates for the site.",
-      "link": "./Portfolios/ChatGPT Portfolio/First.html"
+      "link": "./components/codeViewer/codeViewer.html?project=Portfolio%20Alpha&type=js"
     },
     {
       "title": "Live Demo",
       "desc": "Portfolio Alpha - github - @shan98k",
-      "link": "./Portfolios/ChatGPT Portfolio/First.html"
+      "link": "./Portfolios/ChatGPT Portfolio/index.html"
+    },
+
+    {
+      "__code__": {
+        "basePath": "Portfolios/ChatGPT Portfolio/",
+        "html": ["index.html"],
+        "css": ["style.css"],
+        "js": ["script.js"]
+      }
     }
   ],
 
@@ -26,22 +35,31 @@
     {
       "title": "HTML",
       "desc": "Clean markup for accessibility and better SEO performance.",
-      "link": "./Portfolios/INdex Profesional/index.html"
+      "link": "./components/codeViewer/codeViewer.html?project=Creative%20Hub&type=html"
     },
     {
       "title": "CSS",
       "desc": "Custom styles, animations, and modern design principles applied.",
-      "link": "./Portfolios/INdex Profesional/index.html"
+      "link": "./components/codeViewer/codeViewer.html?project=Creative%20Hub&type=css"
     },
     {
       "title": "JS",
       "desc": "Implemented client-side logic for a smooth user experience.",
-      "link": "./Portfolios/INdex Profesional/index.html"
+      "link": "./components/codeViewer/codeViewer.html?project=Creative%20Hub&type=js"
     },
     {
       "title": "Live Demo",
       "desc": "Creative Hub - github - @shan98k",
       "link": "./Portfolios/INdex Profesional/index.html"
+    },
+
+    {
+      "__code__": {
+        "basePath": "Portfolios/INdex Profesional/",
+        "html": ["index.html"],
+        "css": ["style.css"],
+        "js": ["lineFaded.js", "randomBoxes.js", "smoothScroll.js", "toggleItems.js", "togglePara.js", "typer.js"]
+      }
     }
   ],
 
@@ -49,22 +67,31 @@
     {
       "title": "HTML",
       "desc": "Organized structure for headings, paragraphs, and sections.",
-      "link": "./Portfolios/indexPages/main.html"
+      "link": "./components/codeViewer/codeViewer.html?project=NextGen%20Projects&type=html"
     },
     {
       "title": "CSS",
       "desc": "Styling for consistent typography, color schemes, and layout.",
-      "link": "./Portfolios/indexPages/main.html"
+      "link": "./components/codeViewer/codeViewer.html?project=NextGen%20Projects&type=css"
     },
     {
       "title": "JS",
       "desc": "Enhanced interactivity with event listeners and DOM manipulation.",
-      "link": "./Portfolios/indexPages/main.html"
+      "link": "./components/codeViewer/codeViewer.html?project=NextGen%20Projects&type=js"
     },
     {
       "title": "Live Demo",
       "desc": "NextGen Projects - github - @shan98k",
       "link": "./Portfolios/indexPages/main.html"
+    },
+
+    {
+      "__code__": {
+        "basePath": "Portfolios/indexPages/",
+        "html": ["main.html"],
+        "css": ["main.css"],
+        "js": ["aboutScroll.js", "floatingDots.js", "laserLine.js", "togglePara.js", "toggleAbout.js", "typer.js"]
+      }
     }
   ],
 
@@ -72,22 +99,31 @@
     {
       "title": "HTML",
       "desc": "Semantic elements and meta tags to ensure proper content flow.",
-      "link": "./Portfolios/myPortfolio/index.html"
+      "link": "./components/codeViewer/codeViewer.html?project=Tech%20Vision&type=html"
     },
     {
       "title": "CSS",
       "desc": "Modern responsive design with grids, flexbox, and media queries.",
-      "link": "./Portfolios/myPortfolio/index.html"
+      "link": "./components/codeViewer/codeViewer.html?project=Tech%20Vision&type=css"
     },
     {
       "title": "JS",
       "desc": "Dynamic content updates, form validation, and UI enhancements.",
-      "link": "./Portfolios/myPortfolio/index.html"
+      "link": "./components/codeViewer/codeViewer.html?project=Tech%20Vision&type=js"
     },
     {
       "title": "Live Demo",
       "desc": "Tech Vision - github - @shan98k",
       "link": "./Portfolios/myPortfolio/index.html"
+    },
+
+    {
+      "__code__": {
+        "basePath": "Portfolios/myPortfolio/",
+        "html": ["index.html"],
+        "css": ["style.css"],
+        "js": ["script.js"]
+      }
     }
   ],
 
@@ -95,22 +131,31 @@
     {
       "title": "HTML",
       "desc": "Scalable and well-structured markup designed for future expansion.",
-      "link": "./Portfolios/PortFolio/index.html"
+      "link": "./components/codeViewer/codeViewer.html?project=Future%20Lab&type=html"
     },
     {
       "title": "CSS",
       "desc": "Modern UI styling with focus on usability, animations, and layout flow.",
-      "link": "./Portfolios/PortFolio/index.html"
+      "link": "./components/codeViewer/codeViewer.html?project=Future%20Lab&type=css"
     },
     {
       "title": "JS",
       "desc": "Forward-looking JavaScript features with clean logic and modular code.",
-      "link": "./Portfolios/PortFolio/index.html"
+      "link": "./components/codeViewer/codeViewer.html?project=Future%20Lab&type=js"
     },
     {
       "title": "Live Demo",
       "desc": "Future Lab - github - @shan98k",
       "link": "./Portfolios/PortFolio/index.html"
+    },
+
+    {
+      "__code__": {
+        "basePath": "Portfolios/PortFolio/",
+        "html": ["index.html", "nextpage.html", "demo1.html"],
+        "css": ["style.css", "demo1.css", "element.css", "header.css", "intro.css", "page1.css", "page2.css", "page3.css"],
+        "js": ["script.js", "demo1.js"]
+      }
     }
   ],
 
@@ -118,22 +163,31 @@
     {
       "title": "HTML",
       "desc": "Clean and semantic markup for easy maintenance and readability.",
-      "link": "./Portfolios/Portfolio CRAZY/index.html"
+      "link": "./components/codeViewer/codeViewer.html?project=Innovate%20Studio&type=html"
     },
     {
       "title": "CSS",
       "desc": "Advanced styling, hover effects, and responsive layouts.",
-      "link": "./Portfolios/Portfolio CRAZY/index.html"
+      "link": "./components/codeViewer/codeViewer.html?project=Innovate%20Studio&type=css"
     },
     {
       "title": "JS",
       "desc": "Smooth interactive features using vanilla JavaScript.",
-      "link": "./Portfolios/Portfolio CRAZY/index.html"
+      "link": "./components/codeViewer/codeViewer.html?project=Innovate%20Studio&type=js"
     },
     {
       "title": "Live Demo",
       "desc": "Innovate Studio - github - @shan98k",
       "link": "./Portfolios/Portfolio CRAZY/index.html"
+    },
+
+    {
+      "__code__": {
+        "basePath": "Portfolios/Portfolio CRAZY/",
+        "html": ["index.html", "main.html"],
+        "css": ["style.css", "trash.css" , "page1.css"],
+        "js": ["name.js", "rain.js", "toPage.js"]
+      }
     }
   ],
 
@@ -141,22 +195,31 @@
     {
       "title": "HTML",
       "desc": "Well-structured semantic HTML for clean content presentation.",
-      "link": "./Portfolios/Portfolio2/index.html"
+      "link": "./components/codeViewer/codeViewer.html?project=Digital%20Showcase&type=html"
     },
     {
       "title": "CSS",
       "desc": "Modern UI styling with responsive layouts and smooth transitions.",
-      "link": "./Portfolios/Portfolio2/index.html"
+      "link": "./components/codeViewer/codeViewer.html?project=Digital%20Showcase&type=css"
     },
     {
       "title": "JS",
       "desc": "Client-side logic for interactions and dynamic UI behavior.",
-      "link": "./Portfolios/Portfolio2/index.html"
+      "link": "./components/codeViewer/codeViewer.html?project=Digital%20Showcase&type=js"
     },
     {
       "title": "Live Demo",
       "desc": "Digital Showcase - github - @shan98k",
       "link": "./Portfolios/Portfolio2/index.html"
+    },
+
+    {
+      "__code__": {
+        "basePath": "Portfolios/Portfolio2/",
+        "html": ["index.html", "d2d.html", "main.html" , "wd.html"],
+        "css": ["style.css", "base.css", "base2.css", "base3.css" ,"clock.css", "d2d.css", "intro.css", "monitor.css", "slider.css", "wd.css"],
+        "js": ["buildings.js", "celestial.js", "clock.js" , "intro.js", "opencenter.js", "scrollbtn.js", "scrollmouse.js", "wrapped-2.js", "wrapped-half.js"]
+      }
     }
   ],
 
@@ -164,22 +227,31 @@
     {
       "title": "HTML",
       "desc": "Minimal and clean markup focused on performance.",
-      "link": "./Portfolios/portofolio3-main/portfolio3 copy/index.html"
+      "link": "./components/codeViewer/codeViewer.html?project=Code%20Playground&type=html"
     },
     {
       "title": "CSS",
       "desc": "Experimental styles, animations, and layout techniques.",
-      "link": "./Portfolios/portofolio3-main/portfolio3 copy/index.html"
+      "link": "./components/codeViewer/codeViewer.html?project=Code%20Playground&type=css"
     },
     {
       "title": "JS",
       "desc": "Playground for testing JavaScript concepts and interactions.",
-      "link": "./Portfolios/portofolio3-main/portfolio3 copy/index.html"
+      "link": "./components/codeViewer/codeViewer.html?project=Code%20Playground&type=js"
     },
     {
       "title": "Live Demo",
       "desc": "Code Playground - github - @shan98k",
       "link": "./Portfolios/portofolio3-main/portfolio3 copy/index.html"
+    },
+
+    {
+      "__code__": {
+        "basePath": "Portfolios/portofolio3-main/portfolio3 copy/",
+        "html": ["index.html", "Weather GPT.html"],
+        "css": ["style.css"],
+        "js": ["script.js"]
+      }
     }
   ]
 }
