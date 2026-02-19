@@ -288,7 +288,9 @@ footer {
   margin-top: 4px;
 }
 
+#sharefooter { display: none; }
 @media (max-width: 900px) {
+  #sharefooter { display: flex; }
   .app {
     height: 100dvh;
   }
